@@ -1,0 +1,4 @@
+.weather-forecast {
+  border-right: 1px solid var(--border);
+  width: 20%;
+}
