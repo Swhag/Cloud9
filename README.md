@@ -1,3 +1,3 @@
 # Cloud9
 
-Cloud9 - improved weather app (in-progress)
+Cloud9 - new and improved weather app (in-progress)
