@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/navbar.css';
+import cloudy from '../icons/50n.svg';
+// import { ReactComponent as Cloudy } from '../icons/cloudy.svg';
 
 function Weather(props) {
   return (
@@ -12,6 +14,9 @@ function Weather(props) {
         <div>wind</div>
         <div>wind</div>
       </div>
+      <div>WeatherIcon</div>
+      {/* <Cloudy /> */}
+      <img src={cloudy}></img>
     </div>
   );
 }

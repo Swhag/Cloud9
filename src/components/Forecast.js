@@ -18,6 +18,7 @@ function Forecast() {
       const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${API_KEY}`;
       const forecastResponse = await axios.get(forecastUrl);
       setForecast(forecastResponse.data.daily);
+      console.log(forecastResponse.data.daily);
     };
 
     fetchData();
