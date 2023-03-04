@@ -4,7 +4,7 @@ import './App.css';
 
 import Navbar from './components/Navbar';
 import Weather from './components/Weather';
-import Forecast from './components/Forecast';
+import WeeklyForecast from './components/WeeklyForecast';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <div className='weather-container'>
         <Weather />
-        <Forecast />
+        <WeeklyForecast />
       </div>
     </div>
   );
