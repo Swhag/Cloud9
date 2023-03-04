@@ -15,7 +15,6 @@ function Weather(props) {
         <div>wind</div>
       </div>
       <div>WeatherIcon</div>
-      {/* <Cloudy /> */}
       <img src={cloudy}></img>
     </div>
   );
