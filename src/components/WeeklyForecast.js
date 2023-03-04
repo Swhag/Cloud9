@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getIcon } from '../utils/weatherIcons';
 import { getGeocodingData, getWeatherData } from '../utils/weatherApi';
+import { getIcon } from '../utils/weatherIcons';
+import { formatDate } from '../utils/date';
 
 function useWeatherData(location) {
   const [forecast, setForecast] = useState([]);
@@ -38,13 +39,14 @@ function WeeklyForecast() {
   return (
     <div>
       <ul>
-        {forecast.map((item) => {
+        {forecast.slice(1).map((item) => {
           const date = new Date(item.dt * 1000);
-          const options = { weekday: 'long', month: 'short', day: 'numeric' };
-          const dateString = date.toLocaleDateString(undefined, options);
+          const [weekday, monthDay] = formatDate(date);
+
           return (
             <li key={item.dt}>
-              <span>{dateString}</span>
+              <span>{weekday}</span>
+              <span> {monthDay}</span>
               <span> {Math.round(item.temp.day)}°F</span>
               <img src={getIcon(item.weather[0].icon)} />
             </li>
