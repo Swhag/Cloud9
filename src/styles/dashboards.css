@@ -1,0 +1,83 @@
+.dashboard-container {
+  border-right: 1px solid var(--border);
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+/* ---------------------------------- */
+/* search bar styling */
+/* ---------------------------------- */
+
+.search-bar i {
+  margin-right: 0.7rem;
+}
+
+.search-bar input {
+  outline: none;
+  border: 1px solid var(--border);
+  width: 500px;
+  max-width: 60%;
+  padding: 8px 10px;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+}
+
+/* ---------------------------------- */
+/* weather dashboard styling */
+/* ---------------------------------- */
+
+.weather-dashboard {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-radius: 15px;
+  padding: 1rem;
+  width: 100%;
+
+  color: var(--font);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding: 1rem;
+  gap: 3rem;
+}
+
+.dashboard-content i {
+  margin-right: 0.5rem;
+}
+
+.dashboard-location {
+  display: flex;
+}
+
+.dashboard-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-temp h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.dashboard-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -------------------- */
+
+.weather-chart-container {
+  background: rgba(255, 255, 255, 0.3);
+  width: 50%;
+  border-radius: 15px;
+  padding: 1rem;
+}
