@@ -16,6 +16,16 @@ body {
 }
 
 .weather-container {
-  width: 60%;
+  width: 100%;
   display: flex;
+}
+
+.dashboard-container {
+  border-right: 1px solid var(--border);
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.daily-forecast {
+  width: 30%;
 }
