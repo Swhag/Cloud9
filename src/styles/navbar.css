@@ -1,4 +1,27 @@
 .navbar-container {
   border-right: 1px solid var(--border);
   width: 20%;
+  color: #000;
+}
+
+.navbar-list {
+  margin-top: 4rem;
+  color: #757575;
+}
+
+.navbar-list li {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.navbar-icon {
+  margin-right: 0.3rem;
+  color: #b0bec5;
+}
+
+.navbar-list li:hover,
+.navbar-list li:hover .navbar-icon {
+  color: #448aff;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 :root {
-  --border: rgba(0, 0, 0, 0.7);
+  --border: #bdbdbd;
+  --font: #01579b;
 }
 
 body {
