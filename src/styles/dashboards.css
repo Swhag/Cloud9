@@ -8,17 +8,31 @@
 /* search bar styling */
 /* ---------------------------------- */
 
-.search-bar i {
-  margin-right: 0.7rem;
+.search-bar {
+  width: 500px;
+  max-width: 60%;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
 }
 
 .search-bar input {
   outline: none;
   border: 1px solid var(--border);
-  width: 500px;
-  max-width: 60%;
+  width: 100%;
+
   padding: 8px 10px;
-  margin-bottom: 1.5rem;
   border-radius: 15px;
 }
 
@@ -38,6 +52,13 @@
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .weather-dashboard {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .dashboard-content {
   display: flex;
   flex-direction: column;
@@ -45,6 +66,12 @@
   width: 50%;
   padding: 1rem;
   gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    width: 100%;
+  }
 }
 
 .dashboard-content i {
@@ -80,4 +107,10 @@
   width: 50%;
   border-radius: 15px;
   padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .weather-chart-container {
+    width: 100%;
+  }
 }
