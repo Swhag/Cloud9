@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/searchBar.css';
 
 function SearchBar(props) {
   const { setLocation } = props;
@@ -11,11 +12,11 @@ function SearchBar(props) {
   };
 
   return (
-    <form className='search-box' onSubmit={handleSubmit}>
+    <form className='search-bar' onSubmit={handleSubmit}>
+      <i className='fa-solid fa-magnifying-glass'></i>
       <input
-        className='search-box-input'
         type='text'
-        placeholder='Search Location...'
+        placeholder='Search Location here...'
         name='search'
         autoComplete='off'
         value={searchTerm}

@@ -1,0 +1,13 @@
+.search-bar i {
+  margin-right: 0.7rem;
+}
+
+.search-bar input {
+  outline: none;
+  border: 1px solid #bdbdbd;
+  width: 500px;
+  max-width: 60%;
+  padding: 8px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+}
