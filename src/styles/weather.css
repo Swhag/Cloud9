@@ -1,4 +1,12 @@
-.weather-forecast {
+.weather-container {
+  width: 100%;
+}
+
+.current-forecast {
   border-right: 1px solid var(--border);
-  width: 20%;
+  width: 100%;
+}
+
+.daily-forecast {
+  width: 30%;
 }
