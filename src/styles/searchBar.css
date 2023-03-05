@@ -4,10 +4,10 @@
 
 .search-bar input {
   outline: none;
-  border: 1px solid #bdbdbd;
+  border: 1px solid var(--border);
   width: 500px;
   max-width: 60%;
-  padding: 8px;
+  padding: 8px 10px;
   margin-bottom: 1rem;
   border-radius: 15px;
 }
