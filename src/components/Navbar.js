@@ -1,20 +1,22 @@
 import React from 'react';
 import '../styles/navbar.css';
+import logo from '../icons/logo.png';
 
 import Icon from '@mdi/react';
 import {
   mdiViewDashboard,
   mdiHeartCircleOutline,
   mdiCogOutline,
-  mdiThermometerCheck,
 } from '@mdi/js';
 
 function Navbar(props) {
   return (
     <div className='navbar-container'>
-      <Icon path={mdiThermometerCheck} size={1} />
+      <div className='logo'>
+        <img src={logo}></img>
+        <h2>Cloud9</h2>
+      </div>
 
-      <h2>Cloud9</h2>
       <ul className='navbar-list'>
         <li>
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
