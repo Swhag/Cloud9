@@ -56,6 +56,6 @@ export const getIcon = (code) => {
     case '50n':
       return w50n;
     default:
-      return null; // or return a default icon if the code is not recognized
+      return null;
   }
 };
