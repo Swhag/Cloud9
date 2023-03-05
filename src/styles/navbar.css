@@ -1,11 +1,28 @@
 .navbar-container {
   border-right: 1px solid var(--border);
-  width: 20%;
   color: #000;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.logo img {
+  width: 3rem;
+}
+
+.logo h2 {
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
 }
 
 .navbar-list {
-  margin-top: 4rem;
+  margin-top: 3rem;
   color: #757575;
 }
 
