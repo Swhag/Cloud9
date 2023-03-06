@@ -3,16 +3,17 @@ body {
   padding: 6rem 3rem;
 }
 
+@media (max-width: 1024px) {
+  body {
+    padding: 1rem;
+  }
+}
+
 .main-container {
   background-color: #fff;
-  padding: 1.5rem;
-
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
-  gap: 1rem;
-
-  /* border-radius: 15px; */
+  border-radius: 15px;
 }
 
 .weather-container {
@@ -20,12 +21,9 @@ body {
   display: flex;
 }
 
-.dashboard-container {
-  border-right: 1px solid var(--border);
-  width: 100%;
-  padding: 1rem 2rem;
-}
-
-.daily-forecast {
-  width: 30%;
+@media (max-width: 1024px) {
+  .weather-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
