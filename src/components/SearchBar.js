@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/searchBar.css';
+import { capitalize } from '../utils/formatUtils';
 
 function SearchBar(props) {
   const { setLocation } = props;
@@ -7,13 +7,17 @@ function SearchBar(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLocation(searchTerm);
+    setLocation(capitalize(searchTerm));
+    setSearchTerm('');
     console.log(searchTerm);
   };
 
   return (
     <form className='search-bar' onSubmit={handleSubmit}>
-      <i className='fa-solid fa-magnifying-glass'></i>
+      <button type='submit'>
+        <i className='fa-solid fa-magnifying-glass'></i>
+      </button>
+
       <input
         type='text'
         placeholder='Search Location here...'
@@ -22,7 +26,6 @@ function SearchBar(props) {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button type='submit' className='search-icon'></button>
     </form>
   );
 }
