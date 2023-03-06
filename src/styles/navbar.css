@@ -7,6 +7,12 @@
   flex-direction: column;
 }
 
+@media (max-width: 1024px) {
+  .navbar-container {
+    display: none;
+  }
+}
+
 .logo {
   display: flex;
   align-items: flex-end;

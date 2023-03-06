@@ -1,0 +1,32 @@
+.daily-forecast {
+  width: 35%;
+  padding: 2rem;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .daily-forecast {
+    width: 100%;
+  }
+}
+
+.daily-forecast li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+}
+
+.date-block h4 {
+  margin-bottom: 0.5rem;
+}
+
+.date-block p {
+  margin-left: 0.2rem;
+  color: #757575;
+}
