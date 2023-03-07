@@ -22,14 +22,16 @@ function Navbar(props) {
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
           <span>Dashboard</span>
         </li>
+
         <li>
           <Icon
             path={mdiHeartCircleOutline}
             size={1.3}
             className='navbar-icon'
           />
-          <span>SavedLocation</span>
+          <span>Saved Location</span>
         </li>
+
         <li>
           <Icon path={mdiCogOutline} size={1.3} className='navbar-icon' />
           <span>Settings</span>
