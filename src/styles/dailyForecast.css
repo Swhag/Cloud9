@@ -1,5 +1,7 @@
 .daily-forecast {
   width: 35%;
+  max-width: 22rem;
+
   padding: 2rem;
   color: #000;
 }
