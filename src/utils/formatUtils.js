@@ -15,6 +15,9 @@ function formatDate(date) {
   return [weekday.trim(), monthDay.trim()];
 }
 
+// --------------------------------------------------------
+// --------------------------------------------------------
+
 /**
  * Formats a Unix timestamp into a string representing the time of day,
  * formatted according to the options specified.
@@ -32,4 +35,16 @@ function formatTime(timestamp) {
   });
 }
 
-export { formatDate, formatTime };
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+function capitalize(words) {
+  const spacedWord = words.toLowerCase().split(' ');
+  for (let i = 0; i < spacedWord.length; i++) {
+    spacedWord[i] =
+      spacedWord[i].charAt(0).toUpperCase() + spacedWord[i].substring(1);
+  }
+  return spacedWord.join(' ');
+}
+
+export { formatDate, formatTime, capitalize };
