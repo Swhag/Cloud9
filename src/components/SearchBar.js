@@ -5,14 +5,13 @@ import Select from 'react-select';
 import { components } from 'react-select';
 
 function SearchBar(props) {
-  const { setLocation } = props;
+  const { setLocation, setLat, setLon } = props;
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ... code to fetch location data ...
     const cityResponse = await getLocationData(capitalize(searchValue));
     console.log('API called');
 
@@ -20,14 +19,29 @@ function SearchBar(props) {
       label: city.state
         ? `${city.name}, ${city.state}, ${city.country}`
         : `${city.name}, ${city.country}`,
-      value: city.name,
+      value: {
+        city: city.name,
+        state: city.state,
+        country: city.country,
+        lat: city.lat,
+        lon: city.lon,
+      },
     }));
-    console.log(cityOptions);
+    console.log(cityResponse);
     setOptions(cityOptions);
   };
 
   const handleSelectChange = (selectedOption) => {
-    setLocation(selectedOption.value);
+    selectedOption.value.state
+      ? setLocation(
+          `${selectedOption.value.city}, ${selectedOption.value.state}`
+        )
+      : setLocation(
+          `${selectedOption.value.city}, ${selectedOption.value.country}`
+        );
+
+    setLat(selectedOption.value.lat);
+    setLon(selectedOption.value.lon);
     setSearchValue('');
   };
 
