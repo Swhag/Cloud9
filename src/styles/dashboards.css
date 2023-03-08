@@ -12,12 +12,12 @@
   width: 20rem;
   max-width: 60%;
 
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   margin-bottom: 1rem;
 }
 
-.search-bar button {
+/* .search-bar button {
   background: none;
   border: none;
   margin-right: 0.5rem;
@@ -34,7 +34,10 @@
 
   padding: 8px 10px;
   border-radius: 15px;
-}
+} */
+
+/* ---------------------------------- */
+/* ---------------------------------- */
 
 /* ---------------------------------- */
 /* main dashboard styling */
