@@ -9,7 +9,7 @@ function SearchBar(props) {
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
 
-  const handleSubmit = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
 
     const cityResponse = await getLocationData(capitalize(searchValue));
@@ -27,21 +27,17 @@ function SearchBar(props) {
         lon: city.lon,
       },
     }));
-    console.log(cityResponse);
     setOptions(cityOptions);
   };
 
   const handleSelectChange = (selectedOption) => {
-    selectedOption.value.state
-      ? setLocation(
-          `${selectedOption.value.city}, ${selectedOption.value.state}`
-        )
-      : setLocation(
-          `${selectedOption.value.city}, ${selectedOption.value.country}`
-        );
+    const value = selectedOption.value;
+    value.state
+      ? setLocation(`${value.city}, ${value.state}`)
+      : setLocation(`${value.city}, ${value.country}`);
 
-    setLat(selectedOption.value.lat);
-    setLon(selectedOption.value.lon);
+    setLat(value.lat);
+    setLon(value.lon);
     setSearchValue('');
   };
 
@@ -56,11 +52,12 @@ function SearchBar(props) {
   };
 
   return (
-    <form className='search-bar' onSubmit={handleSubmit}>
+    <form className='search-bar' onSubmit={handleSearch}>
       <Select
+        classNamePrefix='my-select'
         components={{ DropdownIndicator }}
         options={options}
-        value={{ label: searchValue, value: searchValue }}
+        value={searchValue}
         onChange={handleSelectChange}
         onInputChange={setSearchValue}
         placeholder='Search Location here...'
