@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getIcon } from '../utils/weatherIcons';
-import { formatDate } from '../utils/date';
+import { formatDate } from '../utils/formatUtils';
+import '../styles/dailyForecast.css';
 
 function DailyForecast(props) {
   const { weatherData } = props;
@@ -19,9 +20,12 @@ function DailyForecast(props) {
 
           return (
             <li key={item.dt}>
-              <span>{weekday}</span>
-              <span> {monthDay}</span>
-              <span> {Math.round(item.temp.day)}°F</span>
+              <div className='date-block'>
+                <h4>{weekday}</h4>
+                <p> {monthDay}</p>
+              </div>
+
+              <p>{Math.round(item.temp.day)}°F</p>
               <img src={getIcon(item.weather[0].icon)} />
             </li>
           );

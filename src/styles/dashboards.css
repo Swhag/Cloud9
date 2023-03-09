@@ -9,32 +9,22 @@
 /* ---------------------------------- */
 
 .search-bar {
-  width: 20rem;
-  max-width: 60%;
-
-  /* display: flex;
-  align-items: center; */
   margin-bottom: 1rem;
+  width: 100%;
 }
 
-/* .search-bar button {
+.search-bar button {
   background: none;
   border: none;
-  margin-right: 0.5rem;
-  font-size: 1.1rem;
-
-  display: flex;
-  align-items: center;
+  font-size: 1.2rem;
+  margin-right: 0.6rem;
 }
 
-.search-bar input {
-  outline: none;
-  border: 1px solid var(--border);
+.my-select__control {
+  border-radius: 15px !important;
+  border: none;
   width: 100%;
-
-  padding: 8px 10px;
-  border-radius: 15px;
-} */
+}
 
 /* ---------------------------------- */
 /* ---------------------------------- */

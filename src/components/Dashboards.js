@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
+
 import SearchBar from './SearchBar';
-import WeatherDashboard from './WeatherDashboard';
+import MainDashboard from './MainDashboard';
+import SubDashboard from './SubDashboard';
+import '../styles/dashboards.css';
 
 function Dashboards(props) {
-  const { weatherData, location, setLocation } = props;
+  const { weatherData, location, setLocation, setLat, setLon } = props;
 
-  console.log(weatherData);
+  // console.log(weatherData);
 
   return (
     <div className='dashboard-container'>
-      <SearchBar location={location} setLocation={setLocation} />
+      <SearchBar
+        location={location}
+        setLocation={setLocation}
+        setLat={setLat}
+        setLon={setLon}
+      />
 
-      <WeatherDashboard location={location} weatherData={weatherData} />
+      <MainDashboard location={location} weatherData={weatherData} />
+
+      <SubDashboard location={location} weatherData={weatherData} />
 
       {/* <div>
         <div>wind</div>
