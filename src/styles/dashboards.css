@@ -7,27 +7,32 @@
 /* ---------------------------------- */
 /* search bar styling */
 /* ---------------------------------- */
-
-.search-bar {
+.search-bar-container {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
-  width: 100%;
 }
 
-.search-bar button {
+.search-bar-container button {
   background: none;
   border: none;
   font-size: 1.2rem;
-  margin-right: 0.6rem;
+  margin-right: 0.5rem;
 }
 
-.my-select__control {
-  border-radius: 15px !important;
-  border: none;
+.search-bar {
   width: 100%;
 }
 
-/* ---------------------------------- */
-/* ---------------------------------- */
+.my-select__control {
+  border: none;
+  border-radius: 15px !important;
+}
+
+/* this ensures that the input value is still visible after making a selection */
+.my-select__input {
+  opacity: 1 !important;
+}
 
 /* ---------------------------------- */
 /* main dashboard styling */
