@@ -13,16 +13,6 @@ export const getLocationData = async (location) => {
   return LocationResponse.data;
 };
 
-// const buildGeocodingUrl = (location) => {
-//   return `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API_KEY1}`;
-// };
-
-// export const getGeocodingData = async (location) => {
-//   const geocodingUrl = buildGeocodingUrl(location);
-//   const geocodingResponse = await axios.get(geocodingUrl);
-//   return geocodingResponse.data[0];
-// };
-
 const buildWeatherUrl = (lat, lon) => {
   return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=imperial&appid=${API_KEY}`;
 };
