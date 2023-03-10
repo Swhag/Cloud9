@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { capitalize } from '../utils/formatUtils';
 import { getLocationData } from '../utils/weatherAPI';
 import Select from 'react-select';
@@ -8,8 +8,13 @@ function SearchBar(props) {
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    handleSearch();
+  }, [searchValue]);
+
+  const handleSearch = async () => {
+    if (searchValue === '') return;
+
     const cityResponse = await getLocationData(capitalize(searchValue));
     console.log('API called');
     const cityOptions = cityResponse.map((city) => ({
@@ -25,6 +30,11 @@ function SearchBar(props) {
       },
     }));
     setOptions(cityOptions);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch();
   };
 
   const handleSelectChange = (selectedOption) => {
@@ -43,7 +53,7 @@ function SearchBar(props) {
         <i className='fa-solid fa-magnifying-glass'></i>
       </button>
 
-      <form className='search-bar' onSubmit={handleSearch}>
+      <form className='search-bar' onSubmit={handleSubmit}>
         <Select
           classNamePrefix='my-select'
           options={options}
