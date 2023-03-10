@@ -2,21 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { capitalize } from '../utils/formatUtils';
 import { getLocationData } from '../utils/weatherAPI';
 import Select from 'react-select';
+import useDebounce from '../hooks/useDebounce';
 
 function SearchBar(props) {
   const { setLocation, setLat, setLon } = props;
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
+  const [message, setMessage] = useState('No matching locations found');
+
+  useDebounce(() => handleSearch(), 1000, [searchValue]);
 
   useEffect(() => {
-    handleSearch();
+    if (searchValue.length >= 1) {
+      setMessage('Loading...');
+    } else {
+      setMessage('No matching locations found');
+    }
   }, [searchValue]);
 
   const handleSearch = async () => {
     if (searchValue === '') return;
 
     const cityResponse = await getLocationData(capitalize(searchValue));
-    console.log('API called');
     const cityOptions = cityResponse.map((city) => ({
       label: city.state
         ? `${city.name}, ${city.state}, ${city.country}`
@@ -29,7 +36,10 @@ function SearchBar(props) {
         lon: city.lon,
       },
     }));
+    console.log('API called');
+
     setOptions(cityOptions);
+    setMessage('No matching locations found');
   };
 
   const handleSubmit = (e) => {
@@ -66,7 +76,7 @@ function SearchBar(props) {
               setSearchValue(value);
             }
           }}
-          noOptionsMessage={() => 'No matching locations found'}
+          noOptionsMessage={() => message}
         />
       </form>
     </div>
