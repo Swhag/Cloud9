@@ -14,7 +14,7 @@ import {
   mdiAirFilter,
 } from '@mdi/js';
 
-import { formatTime } from '../utils/formatUtils';
+import { formatTime, metersToMiles } from '../utils/formatUtils';
 import { getWindDirection } from '../utils/weatherUtils';
 
 function SubDashboard(props) {
@@ -57,7 +57,7 @@ function SubDashboard(props) {
       <div>
         <Icon path={mdiEye} size={1} />
         <span>Visibility</span>
-        <span>{current.visibility} mi</span>
+        <span>{metersToMiles(current.visibility)} mi</span>
       </div>
 
       <div>

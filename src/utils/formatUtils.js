@@ -47,4 +47,12 @@ function capitalize(words) {
   return spacedWord.join(' ');
 }
 
-export { formatDate, formatTime, capitalize };
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+function metersToMiles(meters) {
+  const milesPerMeter = 0.000621371192;
+  return parseFloat((meters * milesPerMeter).toFixed(1));
+}
+
+export { formatDate, formatTime, capitalize, metersToMiles };
