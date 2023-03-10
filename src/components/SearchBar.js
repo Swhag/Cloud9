@@ -20,6 +20,12 @@ function SearchBar(props) {
     }
   }, [searchValue]);
 
+  useEffect(() => {
+    if (options.length === 0) {
+      setMessage('No matching locations found');
+    }
+  }, [options]);
+
   const handleSearch = async () => {
     if (searchValue === '') return;
 
@@ -37,9 +43,7 @@ function SearchBar(props) {
       },
     }));
     console.log('API called');
-
     setOptions(cityOptions);
-    setMessage('No matching locations found');
   };
 
   const handleSubmit = (e) => {
