@@ -13,6 +13,7 @@ function DailyForecast(props) {
 
   return (
     <div className='daily-forecast'>
+      <h3>7-DAY FORECAST</h3>
       <ul>
         {daily.slice(1).map((item) => {
           const date = new Date(item.dt * 1000);
@@ -20,13 +21,22 @@ function DailyForecast(props) {
 
           return (
             <li key={item.dt}>
-              <div className='date-block'>
+              <div className='daily-block'>
                 <h4>{weekday}</h4>
                 <p> {monthDay}</p>
               </div>
 
-              <p>{Math.round(item.temp.day)}°F</p>
               <img src={getIcon(item.weather[0].icon)} />
+
+              <div className='daily-temp'>
+                <span className='daily-temp-day'>
+                  {Math.round(item.temp.day)}°
+                </span>
+                <span>/</span>
+                <span className='daily-temp-min'>
+                  {Math.round(item.temp.min)}°
+                </span>
+              </div>
             </li>
           );
         })}
