@@ -12,18 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background-image: linear-gradient(
-    to right bottom,
-    #7a5c9f,
-    #6d65ab,
-    #6e6fb0,
-    #7181b5,
-    #7490bb,
-    #8ba3c6
-  ); */
-
   min-height: 100vh;
-
   background-color: #7181b5;
   color: var(--font);
 }
