@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/navbar.css';
-import logo from '../icons/logo.png';
 
+import logo from '../assets/icons/logo.png';
 import Icon from '@mdi/react';
 import {
   mdiViewDashboard,
