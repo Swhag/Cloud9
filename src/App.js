@@ -37,11 +37,11 @@ function App() {
           setLat={setLat}
           setLon={setLon}
         />
-        <DailyForecast
+        {/* <DailyForecast
           weatherData={weatherData}
           location={location}
           setLocation={setLocation}
-        />
+        /> */}
       </div>
     </div>
   );
