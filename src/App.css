@@ -21,18 +21,20 @@ body {
   margin: 0 auto;
 
   display: flex;
-  border-radius: 15px;
 }
 
-@media (max-width: 768px) {
-  .weather-container {
-    display: flex;
-    flex-direction: column;
-  }
+.navbar-container {
+  border-right: 1px solid var(--border);
+  color: #000;
+  padding: 2rem;
+  width: 14rem;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .weather-container {
-  width: 100%;
+  width: calc(100% - 14rem);
   display: flex;
 }
 
@@ -40,5 +42,24 @@ body {
   .weather-container {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .weather-container {
+    width: 100%;
+  }
+}
+
+.dashboard-container {
+  /* border-right: 1px solid var(--border); */
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    width: 100%;
+    padding: 0rem;
   }
 }
