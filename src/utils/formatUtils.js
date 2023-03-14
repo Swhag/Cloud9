@@ -38,6 +38,33 @@ function formatTime(timestamp) {
 // --------------------------------------------------------
 // --------------------------------------------------------
 
+function formatTimeHourly(dt) {
+  // Convert the Unix timestamp to milliseconds and create a new Date object
+  const date = new Date(dt * 1000);
+
+  // Get the hours, minutes, and AM/PM designation from the date
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  // Convert the hours from 24-hour to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // if hours is 0, set it to 12
+
+  // Pad the hours and minutes with leading zeros if necessary
+  const paddedHours = hours < 10 ? '0' + hours : hours;
+  const paddedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+  // Combine the formatted time with the AM/PM designation
+  const formattedTime = `${paddedHours}:${paddedMinutes} ${ampm}`;
+
+  // Return the formatted time string
+  return formattedTime;
+}
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
 function capitalize(words) {
   const spacedWord = words.toLowerCase().split(' ');
   for (let i = 0; i < spacedWord.length; i++) {
@@ -55,4 +82,20 @@ function metersToMiles(meters) {
   return parseFloat((meters * milesPerMeter).toFixed(1));
 }
 
-export { formatDate, formatTime, capitalize, metersToMiles };
+function getWindDirection(degrees) {
+  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const index = Math.round((degrees % 360) / 45);
+  return directions[index];
+}
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+export {
+  formatDate,
+  formatTime,
+  formatTimeHourly,
+  capitalize,
+  metersToMiles,
+  getWindDirection,
+};
