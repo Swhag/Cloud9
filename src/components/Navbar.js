@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/navbar.css';
 
 import logo from '../assets/icons/logo.png';
@@ -10,8 +10,15 @@ import {
 } from '@mdi/js';
 
 function Navbar(props) {
+  const { showNavbar } = props;
+  const [nav, setNav] = useState('show');
+
+  useEffect(() => {
+    showNavbar === true ? setNav('show') : setNav('hide');
+  }, [showNavbar]);
+
   return (
-    <div className='navbar-container'>
+    <div className={`navbar-container ${nav}`}>
       <div className='logo'>
         <img src={logo}></img>
         <h2>Cloud9</h2>
