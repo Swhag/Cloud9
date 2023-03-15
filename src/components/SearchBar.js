@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { capitalize } from '../utils/formatUtils';
 import { getLocationData } from '../utils/weatherAPI';
 import Select from 'react-select';
-import useDebounce from '../hooks/useDebounce';
+import useDebounce from '../utils/hooks/useDebounce';
+import Icon from '@mdi/react';
+import { mdiMenu } from '@mdi/js';
 
 function SearchBar(props) {
   const { setLocation, setLat, setLon } = props;
@@ -62,8 +64,11 @@ function SearchBar(props) {
   };
 
   return (
-    <div className='search-bar-container'>
-      <button>
+    <>
+      <button className='menu-button'>
+        <Icon path={mdiMenu} size={2} />
+      </button>
+      <button className='search-button'>
         <i className='fa-solid fa-magnifying-glass'></i>
       </button>
 
@@ -83,7 +88,7 @@ function SearchBar(props) {
           noOptionsMessage={() => message}
         />
       </form>
-    </div>
+    </>
   );
 }
 
