@@ -7,7 +7,7 @@ import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
 
 function SearchBar(props) {
-  const { setLocation, setLat, setLon } = props;
+  const { setLocation, setLat, setLon, showNavbar, setShowNavbar } = props;
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
   const [message, setMessage] = useState('No matching locations found');
@@ -65,7 +65,10 @@ function SearchBar(props) {
 
   return (
     <>
-      <button className='menu-button'>
+      <button
+        className='menu-button'
+        onClick={() => setShowNavbar(!showNavbar)}
+      >
         <Icon path={mdiMenu} size={2} />
       </button>
       <button className='search-button'>
