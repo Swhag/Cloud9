@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Dashboards from './components/Dashboards';
-import DailyForecast from './components/DailyForecast';
-import {
-  getLocationData,
-  getGeocodingData,
-  getWeatherData,
-} from './utils/weatherAPI';
+import { getWeatherData } from './utils/weatherAPI';
 
 function App() {
   const [location, setLocation] = useState('New York');
   const [weatherData, setWeatherData] = useState([]);
+  const [showNavbar, setShowNavbar] = useState(false);
   const [lat, setLat] = useState(40.7127);
   const [lon, setLon] = useState(-74.006);
 
@@ -24,11 +20,13 @@ function App() {
     };
 
     fetchData();
+
+    console.log('API called');
   }, [lat, lon]);
 
   return (
     <div className='main-container'>
-      <Navbar />
+      <Navbar showNavbar={showNavbar} />
       <div className='weather-container'>
         <Dashboards
           weatherData={weatherData}
@@ -36,12 +34,9 @@ function App() {
           setLocation={setLocation}
           setLat={setLat}
           setLon={setLon}
+          showNavbar={showNavbar}
+          setShowNavbar={setShowNavbar}
         />
-        {/* <DailyForecast
-          weatherData={weatherData}
-          location={location}
-          setLocation={setLocation}
-        /> */}
       </div>
     </div>
   );
