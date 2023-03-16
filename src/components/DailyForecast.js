@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatUtils';
+import Icon from '@mdi/react';
+import { mdiWater, mdiWeatherRainy } from '@mdi/js';
 import '../styles/dailyForecast.css';
 
 function DailyForecast(props) {
@@ -11,7 +13,7 @@ function DailyForecast(props) {
     return <div>Loading...</div>;
   }
 
-  console.log(daily);
+  console.log(weatherData);
 
   return (
     <div className='daily-forecast'>
@@ -24,7 +26,7 @@ function DailyForecast(props) {
           return (
             <li key={item.dt}>
               <div className='daily-block'>
-                <h4>{weekday}</h4>
+                <h4>{weekday.substring(0, 3)}</h4>
                 <p> {monthDay}</p>
               </div>
 
@@ -38,6 +40,10 @@ function DailyForecast(props) {
                 <div className='daily-temp-feels'>
                   <span>Feels:</span>
                   {Math.round(item.feels_like.day)}°
+                </div>
+                <div className='daily-rain'>
+                  <Icon path={mdiWater} size={1.2} />
+                  <span>{Math.round(item.pop * 100)}%</span>
                 </div>
               </div>
             </li>
