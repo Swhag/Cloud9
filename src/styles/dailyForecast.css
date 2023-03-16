@@ -1,41 +1,59 @@
 .daily-forecast {
-  width: 40%;
-  max-width: 30rem;
-
-  padding: 2rem;
-  color: #000;
+  background-color: #1565c0;
+  color: #fff;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 @media (max-width: 768px) {
   .daily-forecast {
+    width: 40%;
+    max-width: 30rem;
     width: 100%;
   }
 }
 
 .daily-forecast h3 {
-  color: #757575;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+.daily-forecast ul {
+  display: flex;
+  justify-content: space-between;
 }
 
 .daily-forecast li {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  width: 14%;
+
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 0.5rem 0 0.5rem 0;
 }
 
-.daily-forecast li:not(:last-child) {
-  border-bottom: 1px solid #bdbdbd;
-}
-
-.daily-forecast li img {
-  width: 80px;
-  height: 80px;
+@media (max-width: 768px) {
+  .daily-forecast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    max-width: 30rem;
+    width: 100%;
+  }
 }
 
 .daily-block {
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-width: 80px;
+  margin-bottom: 1rem;
 }
 
 .daily-block h4 {
@@ -44,21 +62,28 @@
 
 .daily-block p {
   margin-left: 0.2rem;
-  color: #757575;
+  color: #eeeeee;
+}
+
+.daily-forecast img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
 }
 
 .daily-temp {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .daily-temp-day {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-right: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.daily-temp-min {
-  color: #757575;
-  margin-left: 0.2rem;
+.daily-temp-feels span {
+  margin-right: 0.2rem;
 }

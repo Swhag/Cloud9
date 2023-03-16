@@ -11,6 +11,8 @@ function DailyForecast(props) {
     return <div>Loading...</div>;
   }
 
+  console.log(daily);
+
   return (
     <div className='daily-forecast'>
       <h3>7-DAY FORECAST</h3>
@@ -29,13 +31,14 @@ function DailyForecast(props) {
               <img src={getIcon(item.weather[0].icon)} />
 
               <div className='daily-temp'>
-                <span className='daily-temp-day'>
+                <div className='daily-temp-day'>
                   {Math.round(item.temp.day)}°
-                </span>
-                <span>/</span>
-                <span className='daily-temp-min'>
-                  {Math.round(item.temp.min)}°
-                </span>
+                </div>
+                {/* <span>/</span> */}
+                <div className='daily-temp-feels'>
+                  <span>Feels:</span>
+                  {Math.round(item.feels_like.day)}°
+                </div>
               </div>
             </li>
           );
