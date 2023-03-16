@@ -25,6 +25,12 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .main-container {
+    border-radius: 0;
+  }
+}
+
 .navbar-container {
   border-right: 1px solid var(--border);
   color: #000;
