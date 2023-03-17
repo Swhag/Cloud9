@@ -5,35 +5,32 @@
 }
 
 .logo {
+  color: #fff;
   display: flex;
-  align-items: flex-end;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .logo img {
   width: 3rem;
 }
 
-.logo h2 {
-  font-size: 1.3rem;
-  margin-left: 0.5rem;
-}
-
 .navbar-list {
   margin-top: 3rem;
-  color: #757575;
+  color: #fff;
 }
 
 .navbar-list li {
   display: flex;
   align-items: center;
   margin-top: 2rem;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 1024px) {
   .navbar-list {
     margin-top: 2rem;
     margin-bottom: 2rem;
-    color: #757575;
   }
 
   .navbar-list li {
@@ -42,8 +39,8 @@
 }
 
 .navbar-icon {
-  margin-right: 0.3rem;
-  color: #b0bec5;
+  margin-right: 0.8rem;
+  color: #fff;
 }
 
 .navbar-list li:hover,

@@ -17,7 +17,7 @@
 .navbar-container {
   color: #000;
   padding: 2rem;
-  width: 14rem;
+  width: 16rem;
 
   display: flex;
   flex-direction: column;
@@ -48,9 +48,21 @@
 }
 
 .dashboard-container {
-  width: calc(100% - 14rem);
-  padding: 2rem;
+  width: calc(100% - 16rem);
+  padding: 2rem 6rem;
   overflow-y: scroll;
+}
+
+@media (max-width: 1600px) {
+  .dashboard-container {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .dashboard-container {
+    padding: 2rem 2rem;
+  }
 }
 
 @media (max-width: 1024px) {

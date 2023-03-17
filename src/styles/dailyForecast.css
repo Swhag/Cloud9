@@ -1,23 +1,18 @@
 .daily-forecast {
-  background-color: #1a1a2d;
-  background-color: transparent;
   color: #fff;
-  margin-top: 1rem;
-  padding: 1rem;
   font-size: 1.3rem;
   border-radius: 15px;
 }
 
 @media (max-width: 1024px) {
   .daily-forecast {
-    margin-top: 0;
     font-size: 1.1rem;
     border-radius: 0;
   }
 }
 
 .daily-forecast h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-left: 0.5rem;
   font-size: 1.3rem;
 }

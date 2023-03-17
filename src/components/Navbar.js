@@ -20,8 +20,9 @@ function Navbar(props) {
   return (
     <div className={`navbar-container ${nav}`}>
       <div className='logo'>
-        <img src={logo}></img>
-        <h2>Cloud9</h2>
+        <span>
+          <img src={logo}></img> Cloud9
+        </span>
       </div>
 
       <ul className='navbar-list'>
