@@ -1,9 +1,19 @@
 .daily-forecast {
-  background-color: #1565c0;
+  background-color: #1a1a2d;
+  background-color: transparent;
   color: #fff;
   margin-top: 1rem;
   padding: 1rem;
   font-size: 1.3rem;
+  border-radius: 15px;
+}
+
+@media (max-width: 1024px) {
+  .daily-forecast {
+    margin-top: 0;
+    font-size: 1.1rem;
+    border-radius: 0;
+  }
 }
 
 .daily-forecast h3 {
@@ -27,7 +37,6 @@
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   width: 14%;
-
   padding: 2rem 1rem;
   margin-bottom: 1rem;
 
@@ -39,9 +48,7 @@
 
 @media (max-width: 1024px) {
   .daily-forecast li {
-    border-radius: 15px;
     width: 100%;
-
     padding: 1rem;
     flex-direction: row;
     justify-content: space-between;
@@ -54,6 +61,12 @@
   align-items: center;
   min-width: 80px;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .daily-block {
+    margin-bottom: 0;
+  }
 }
 
 .daily-block h4 {
@@ -85,13 +98,6 @@
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
-  .daily-temp {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
 .daily-temp-day {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
@@ -111,4 +117,19 @@
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+}
+
+@media (max-width: 1024px) {
+  .daily-temp {
+    display: flex;
+  }
+
+  .daily-temp-day {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+  }
+
+  .daily-temp-feels {
+    margin-bottom: 0;
+  }
 }

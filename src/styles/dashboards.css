@@ -5,8 +5,8 @@
 .search-bar-container {
   display: flex;
   align-items: center;
-  width: 50%;
-  margin-bottom: 1rem;
+  width: 40%;
+  margin-bottom: 2rem;
   padding: 0 1rem;
 }
 
@@ -33,6 +33,7 @@
   border: none;
   font-size: 1.2rem;
   margin-right: 0.5rem;
+  color: #fff;
 }
 
 .menu-button {
@@ -111,6 +112,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    padding: 0 1rem;
   }
 }
 
