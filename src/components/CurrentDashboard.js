@@ -1,15 +1,24 @@
 import React from 'react';
-import { getImage } from '../utils/weatherImages';
 import SearchBar from './SearchBar';
 import CurrentWeather from './CurrentWeather';
 import CurrentDetails from './CurrentDetails';
 import WeatherChart from './WeatherChart';
 
+import { getImage } from '../utils/weatherImages';
+
 let fontColor = '#fff';
 let backgroundColor = 'rgba(0, 0, 0, 0.2)';
 
 function CurrentDashboard(props) {
-  const { weatherData, location, setLocation, setLat, setLon } = props;
+  const {
+    weatherData,
+    location,
+    setLocation,
+    setLat,
+    setLon,
+    showNavbar,
+    setShowNavbar,
+  } = props;
 
   if (!weatherData || !weatherData.current) {
     return <div>Loading...</div>;
@@ -29,6 +38,8 @@ function CurrentDashboard(props) {
           setLocation={setLocation}
           setLat={setLat}
           setLon={setLon}
+          showNavbar={showNavbar}
+          setShowNavbar={setShowNavbar}
         />
       </div>
 
@@ -43,7 +54,6 @@ function CurrentDashboard(props) {
           backgroundColor={backgroundColor}
         />
       </div>
-
       <WeatherChart
         weatherData={weatherData}
         fontColor={fontColor}
