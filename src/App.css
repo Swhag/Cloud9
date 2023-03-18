@@ -1,4 +1,6 @@
 body {
+  background: linear-gradient(to bottom right, #86a8e7, #a3b9f2, #c0cafd);
+
   background-color: var(--background);
 }
 
@@ -25,8 +27,8 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  background-color: #242d45;
   background-color: #28324d;
+  background-color: #242d45;
 }
 
 @media (max-width: 1024px) {

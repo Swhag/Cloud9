@@ -27,7 +27,6 @@ function App() {
   return (
     <div className='main-container'>
       <Navbar showNavbar={showNavbar} />
-      {/* <div className='weather-container'> */}
       <div className='dashboard-container'>
         <Dashboards
           weatherData={weatherData}
