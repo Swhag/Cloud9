@@ -1,6 +1,7 @@
 :root {
   --border: #bdbdbd;
-  --background: #1a1a2d;
+  --background-body: #1a1a2d;
+  --background-dashboard: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -10,8 +11,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-color: var(--background);
 }
 
 code {
