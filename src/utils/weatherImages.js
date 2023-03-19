@@ -7,9 +7,9 @@ import scatteredCloudNight from '../assets/images/scatteredCloudNight.jpg';
 import brokenCloudsDay from '../assets/images/brokenCloudsDay.jpg';
 import brokenCloudsNight from '../assets/images/brokenCloudsNight.jpg';
 
-import showerDay from '../assets/images/showerDay.jpg';
 import rainNight from '../assets/images/rainNight.jpg';
 import rainDay from '../assets/images/rainDay.jpg';
+
 import thunder from '../assets/images/thunder.jpg';
 import snowDay from '../assets/images/snowDay.jpg';
 import snowNight from '../assets/images/snowNight.jpg';
@@ -50,27 +50,18 @@ export const getImage = (code) => {
     case '04n':
       return brokenCloudsNight;
 
-    // 09d (shower rain day)
+    // 09d (shower rain day) || 10d (rain day)
     case '09d':
-      return showerDay;
-
-    // 09n (shower rain night)
-    case '09n':
-      return rainNight;
-
-    // 10d (rain day)
     case '10d':
       return rainDay;
 
-    // 10n (rain night)
+    // 09n (shower rain night) || 10n (rain night)
+    case '09n':
     case '10n':
       return rainNight;
 
-    // 11d (thunderstorm day)
+    // 11d (thunderstorm day) || 11n (thunderstorm night)
     case '11d':
-      return thunder;
-
-    // 11n (thunderstorm night)
     case '11n':
       return thunder;
 
@@ -104,7 +95,6 @@ export {
   scatteredCloudNight,
   brokenCloudsDay,
   brokenCloudsNight,
-  showerDay,
   rainNight,
   rainDay,
   thunder,
