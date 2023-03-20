@@ -4,24 +4,7 @@ import Navbar from './components/Navbar';
 import Dashboards from './components/Dashboards';
 import { getWeatherData } from './utils/weatherAPI';
 import { getImage } from './utils/weatherImages';
-import {
-  clearDay,
-  clearNight,
-  fewCloudsDay,
-  fewCloudsNight,
-  scatteredCloudDay,
-  scatteredCloudNight,
-  brokenCloudsDay,
-  brokenCloudsNight,
-  showerDay,
-  rainNight,
-  rainDay,
-  thunder,
-  snowDay,
-  snowNight,
-  mistDay,
-  mistNight,
-} from './utils/weatherImages';
+import { setFilter } from './utils/backgroundFilter';
 
 function App() {
   const [location, setLocation] = useState('New York');
@@ -29,16 +12,6 @@ function App() {
   const [showNavbar, setShowNavbar] = useState(false);
   const [lat, setLat] = useState(40.7127);
   const [lon, setLon] = useState(-74.006);
-
-  const backgroundImage = {
-    // backgroundImage: `url(${getImage(weatherData.current.weather[0].icon)})`,
-    backgroundImage: `url(${fewCloudsDay})`,
-    backgroundSize: 'cover',
-  };
-
-  const backgroundFilter = {
-    background: 'rgba(0, 0, 0, 0.2)',
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,6 +29,15 @@ function App() {
   if (!Object.keys(weatherData).length) {
     return <div>Loading...</div>;
   }
+
+  const backgroundImage = {
+    backgroundImage: `url(${getImage(weatherData.current.weather[0].icon)})`,
+    backgroundSize: 'cover',
+  };
+
+  const backgroundFilter = {
+    background: setFilter(weatherData.current.weather[0].icon),
+  };
 
   return (
     <div className='main-container'>
