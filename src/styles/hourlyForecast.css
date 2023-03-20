@@ -1,0 +1,67 @@
+.hourly-forecast-container {
+  color: #fff;
+  font-size: 1.2rem;
+  max-width: 40rem;
+}
+
+.hourly-forecast-container h3 {
+  padding: 2rem 0 0 2rem;
+}
+
+.hourly-forecast {
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  /* display: flex; */
+
+  max-height: 50rem;
+  overflow-y: scroll;
+}
+
+.hourly-day-block h4 {
+  margin-bottom: 1rem;
+}
+
+.hourly-forecast ul {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  width: 100%;
+  gap: 0.5rem;
+  /* justify-content: space-between; */
+  /* overflow-x: scroll; */
+}
+
+.hourly-forecast li {
+  /* min-width: 7rem; */
+
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  /* padding: 0.5rem; */
+
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------------------- */
+/* stats scroll styling */
+/* ---------------------------------------- */
+
+.hourly-forecast::-webkit-scrollbar {
+  background-color: rgba(36, 45, 69, 0.9);
+  width: 1.2rem;
+  border-radius: 8px;
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb {
+  background-color: #eee;
+
+  border-radius: 8px;
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
