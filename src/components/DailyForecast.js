@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import { getIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatUtils';
 import Icon from '@mdi/react';
@@ -7,19 +9,17 @@ import '../styles/dailyForecast.css';
 
 function DailyForecast(props) {
   const { weatherData } = props;
-  const daily = weatherData.daily;
+  const dashboardStyle = useSelector((state) => state.dashboard.dashboardStyle);
 
   if (!Object.keys(weatherData).length) {
     return <div>Loading...</div>;
   }
 
-  console.log(weatherData);
-
   return (
-    <div className='daily-forecast'>
+    <div className='daily-forecast' style={dashboardStyle}>
       <h3>7-DAY FORECAST</h3>
       <ul>
-        {daily.slice(1).map((item) => {
+        {weatherData.daily.slice(1).map((item) => {
           const date = new Date(item.dt * 1000);
           const [weekday, monthDay] = formatDate(date);
 
@@ -36,15 +36,15 @@ function DailyForecast(props) {
                 <div className='daily-temp-day'>
                   {Math.round(item.temp.day)}°
                 </div>
-                {/* <span>/</span> */}
                 <div className='daily-temp-feels'>
                   <span>Feels:</span>
                   {Math.round(item.feels_like.day)}°
                 </div>
-                <div className='daily-rain'>
-                  <Icon path={mdiWater} size={1.2} />
-                  <span>{Math.round(item.pop * 100)}%</span>
-                </div>
+              </div>
+
+              <div className='daily-rain'>
+                <Icon path={mdiWater} size={1.2} />
+                <span>{Math.round(item.pop * 100)}%</span>
               </div>
             </li>
           );
