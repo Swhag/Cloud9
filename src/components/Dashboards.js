@@ -1,35 +1,63 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setBackground } from '../redux/dashboardSlice';
 
 import SearchBar from './SearchBar';
-import MainDashboard from './MainDashboard';
-import SubDashboard from './SubDashboard';
+import CurrentDashboard from './CurrentDashboard';
+import HourlyForecast from './HourlyForecast';
+import DailyForecast from './DailyForecast';
+
 import '../styles/dashboards.css';
 
 function Dashboards(props) {
-  const { weatherData, location, setLocation, setLat, setLon } = props;
+  const {
+    weatherData,
+    location,
+    setLocation,
+    setLat,
+    setLon,
+    showNavbar,
+    setShowNavbar,
+  } = props;
+  const dispatch = useDispatch();
 
-  // console.log(weatherData);
+  useEffect(() => {
+    if (weatherData.current.weather) {
+      dispatch(setBackground(weatherData.current.weather[0].icon));
+    }
+  }, [weatherData, dispatch]);
 
   return (
-    <div className='dashboard-container'>
-      <SearchBar
+    <>
+      <div className='search-bar-container'>
+        <SearchBar
+          location={location}
+          setLocation={setLocation}
+          setLat={setLat}
+          setLon={setLon}
+          showNavbar={showNavbar}
+          setShowNavbar={setShowNavbar}
+        />
+      </div>
+
+      <CurrentDashboard
+        weatherData={weatherData}
         location={location}
         setLocation={setLocation}
         setLat={setLat}
         setLon={setLon}
+        showNavbar={showNavbar}
+        setShowNavbar={setShowNavbar}
       />
 
-      <MainDashboard location={location} weatherData={weatherData} />
+      <DailyForecast
+        weatherData={weatherData}
+        location={location}
+        setLocation={setLocation}
+      />
 
-      <SubDashboard location={location} weatherData={weatherData} />
-
-      {/* <div>
-        <div>wind</div>
-        <div>rain chance</div>
-        <div>wind</div>
-        <div>wind</div>
-      </div> */}
-    </div>
+      <HourlyForecast location={location} weatherData={weatherData} />
+    </>
   );
 }
 
