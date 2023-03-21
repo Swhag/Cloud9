@@ -3,8 +3,9 @@ import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
 const WeatherChart = (props) => {
-  const { weatherData, fontColor, backgroundColor } = props;
+  const { weatherData, dashboardStyle } = props;
 
+  const fontColor = '#fff';
   const gridColor = 'rgba(255, 255, 255, 0.6)';
 
   const morning = weatherData?.daily[0]?.temp.morn;
@@ -75,10 +76,7 @@ const WeatherChart = (props) => {
   };
 
   return (
-    <div
-      className='weather-chart-container'
-      style={{ backgroundColor: backgroundColor }}
-    >
+    <div className='weather-chart-container' style={dashboardStyle}>
       <h2>Today's Forecast</h2>
       <Line data={data} options={options} />
     </div>
