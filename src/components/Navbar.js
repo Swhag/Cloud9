@@ -4,21 +4,16 @@ import '../styles/navbar.css';
 import logo from '../assets/icons/logo.png';
 import Icon from '@mdi/react';
 import {
+  mdiClose,
+  mdiMenu,
   mdiViewDashboard,
   mdiHeartCircleOutline,
   mdiCogOutline,
 } from '@mdi/js';
 
 function Navbar(props) {
-  const { showNavbar } = props;
-  const [nav, setNav] = useState('show');
-
-  useEffect(() => {
-    showNavbar === true ? setNav('show') : setNav('hide');
-  }, [showNavbar]);
-
   return (
-    <div className={`navbar-container ${nav}`}>
+    <>
       <div className='logo'>
         <span>
           <img src={logo}></img> Cloud9
@@ -28,7 +23,7 @@ function Navbar(props) {
       <ul className='navbar-list'>
         <li>
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
-          <span>Dashboard</span>
+          <span>Dashboards</span>
         </li>
 
         <li>
@@ -45,7 +40,7 @@ function Navbar(props) {
           <span>Settings</span>
         </li>
       </ul>
-    </div>
+    </>
   );
 }
 
