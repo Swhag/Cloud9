@@ -44,19 +44,20 @@ function App() {
       <div className='background-container' style={backgroundImage}>
         <div className='background-filter' style={backgroundFilter}></div>
       </div>
-      <Navbar showNavbar={showNavbar} />
 
-      <div className='dashboard-container'>
-        <Dashboards
-          weatherData={weatherData}
-          location={location}
-          setLocation={setLocation}
-          setLat={setLat}
-          setLon={setLon}
-          showNavbar={showNavbar}
-          setShowNavbar={setShowNavbar}
-        />
+      <div className='navbar-container'>
+        <Navbar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
       </div>
+
+      <Dashboards
+        weatherData={weatherData}
+        location={location}
+        setLocation={setLocation}
+        setLat={setLat}
+        setLon={setLon}
+        showNavbar={showNavbar}
+        setShowNavbar={setShowNavbar}
+      />
     </div>
   );
 }
