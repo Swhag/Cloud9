@@ -17,7 +17,7 @@ function DailyForecast(props) {
 
   return (
     <div className='daily-forecast' style={dashboardStyle}>
-      <h3>7-DAY FORECAST</h3>
+      <h3>DAILY FORECAST - 7 DAYS</h3>
       <ul>
         {weatherData.daily.slice(1).map((item) => {
           const date = new Date(item.dt * 1000);
