@@ -12,6 +12,8 @@ import {
 } from '@mdi/js';
 
 function Navbar(props) {
+  const { setCurrentPage } = props;
+
   return (
     <>
       <div className='logo'>
@@ -21,12 +23,12 @@ function Navbar(props) {
       </div>
 
       <ul className='navbar-list'>
-        <li>
+        <li onClick={() => setCurrentPage('dashboard')}>
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
           <span>Dashboards</span>
         </li>
 
-        <li>
+        <li onClick={() => setCurrentPage('saved location')}>
           <Icon
             path={mdiHeartCircleOutline}
             size={1.3}
@@ -35,7 +37,7 @@ function Navbar(props) {
           <span>Saved Location</span>
         </li>
 
-        <li>
+        <li onClick={() => setCurrentPage('settings')}>
           <Icon path={mdiCogOutline} size={1.3} className='navbar-icon' />
           <span>Settings</span>
         </li>
