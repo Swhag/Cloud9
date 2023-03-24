@@ -168,6 +168,11 @@
   font-size: 1.2rem;
 }
 
+.current-location {
+  display: flex;
+  align-items: center;
+}
+
 .current-info i {
   margin-right: 0.5rem;
 }
