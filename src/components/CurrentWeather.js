@@ -1,6 +1,7 @@
 import React from 'react';
 import { getIcon } from '../utils/weatherIcons';
 import { capitalize, formatTime } from '../utils/formatUtils';
+import { IoLocationSharp } from 'react-icons/io5';
 
 function CurrentWeather(props) {
   const { location, weatherData, dashboardStyle } = props;
@@ -8,10 +9,10 @@ function CurrentWeather(props) {
   return (
     <div className='current-weather' style={dashboardStyle}>
       <div className='current-info'>
-        <span>
-          <i className='fa-solid fa-location-dot'></i>
+        <div className='current-location'>
+          <IoLocationSharp size={20} />
           {location}
-        </span>
+        </div>
 
         <span>Updated: {formatTime(weatherData.current.dt)}</span>
       </div>

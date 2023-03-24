@@ -11,8 +11,9 @@ import {
   mdiWeatherSunsetUp,
   mdiWeatherSunset,
   mdiWeatherCloudy,
-  mdiAirFilter,
 } from '@mdi/js';
+
+import { WiMoonrise, WiMoonset } from 'react-icons/wi';
 
 import {
   formatTime,
@@ -106,7 +107,6 @@ function CurrentDetails(props) {
           </div>
           <span>{formatTime(weatherData.current.sunrise)}</span>
         </div>
-
         <div className='details-block'>
           <div className='details-label'>
             <Icon path={mdiWeatherSunset} size={iconSize} />
@@ -117,15 +117,24 @@ function CurrentDetails(props) {
 
         <div className='details-block'>
           <div className='details-label'>
-            <Icon path={mdiWeatherSunset} size={iconSize} />
+            <WiMoonrise
+              size={44}
+              style={{
+                margin: -8,
+              }}
+            />
             <span>Moonrise</span>
           </div>
           <span>{formatTime(weatherData.daily[0].moonrise)}</span>
         </div>
-
         <div className='details-block'>
           <div className='details-label'>
-            <Icon path={mdiWeatherSunset} size={iconSize} />
+            <WiMoonset
+              size={44}
+              style={{
+                margin: -8,
+              }}
+            />
             <span>Moonset</span>
           </div>
           <span>{formatTime(weatherData.daily[0].moonset)}</span>
