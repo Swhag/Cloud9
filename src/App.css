@@ -3,6 +3,8 @@
 
   margin: 0 auto;
   display: flex;
+  /* flex-direction: column; */
+
   overflow: hidden;
 }
 
@@ -49,10 +51,36 @@
 
 @media (max-width: 1024px) {
   .navbar-container {
-    display: none;
+    /* display: none; */
   }
 
   .mobile-navbar-container {
+    position: absolute;
+    left: 0;
+    top: 5rem;
+    opacity: 0;
+
+    background-color: rgba(36, 45, 69, 0.9);
+    border: none;
+    width: 100%;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.4s, opacity 0.4s;
+  }
+}
+
+/* --------------------- */
+
+@media (max-width: 1024px) {
+  .navbar-container {
+    display: none;
+  }
+
+  .mobie-navbar-container {
     position: absolute;
     left: 0;
     top: 5rem;

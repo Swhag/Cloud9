@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
 import Navbar from './components/Navbar';
-import Dashboards from './components/Dashboards';
+
+import Settings from './pages/Settings';
+
+import SearchBar from './components/SearchBar';
+
+import Dashboards from './pages/Dashboards';
 import { getWeatherData } from './utils/weatherAPI';
 import { getImage } from './utils/weatherImages';
 import { setFilter } from './utils/backgroundFilter';
@@ -10,8 +16,10 @@ function App() {
   const [location, setLocation] = useState('New York');
   const [weatherData, setWeatherData] = useState([]);
   const [showNavbar, setShowNavbar] = useState(false);
+  const [currentPage, setCurrentPage] = useState('dashboard');
   const [lat, setLat] = useState(40.7127);
   const [lon, setLon] = useState(-74.006);
+  const [nav, setNav] = useState('show');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +33,10 @@ function App() {
 
     console.log('API called');
   }, [lat, lon]);
+
+  useEffect(() => {
+    showNavbar === true ? setNav('show') : setNav('hide');
+  }, [showNavbar]);
 
   if (!Object.keys(weatherData).length) {
     return <div>Loading...</div>;
@@ -45,19 +57,49 @@ function App() {
         <div className='background-filter' style={backgroundFilter}></div>
       </div>
 
-      <div className='navbar-container'>
-        <Navbar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
+      <div className={`navbar-container ${nav}`}>
+        <Navbar
+          showNavbar={showNavbar}
+          setShowNavbar={setShowNavbar}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
 
-      <Dashboards
-        weatherData={weatherData}
-        location={location}
-        setLocation={setLocation}
-        setLat={setLat}
-        setLon={setLon}
-        showNavbar={showNavbar}
-        setShowNavbar={setShowNavbar}
-      />
+      <div className='page-container'>
+        <div className='search-bar-container'>
+          <SearchBar
+            location={location}
+            setLocation={setLocation}
+            setLat={setLat}
+            setLon={setLon}
+            showNavbar={showNavbar}
+            setShowNavbar={setShowNavbar}
+          />
+
+          <div className={`mobile-navbar-container ${nav}`}>
+            <Navbar
+              showNavbar={showNavbar}
+              setShowNavbar={setShowNavbar}
+              setCurrentPage={setCurrentPage}
+            />
+          </div>
+        </div>
+
+        {currentPage === 'settings' && <Settings />}
+
+        {currentPage === 'dashboard' && (
+          <Dashboards
+            weatherData={weatherData}
+            location={location}
+            setLocation={setLocation}
+            setLat={setLat}
+            setLon={setLon}
+            showNavbar={showNavbar}
+            setShowNavbar={setShowNavbar}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
+      </div>
     </div>
   );
 }
