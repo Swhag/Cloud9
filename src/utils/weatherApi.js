@@ -13,12 +13,12 @@ export const getLocationData = async (location) => {
   return LocationResponse.data;
 };
 
-const buildWeatherUrl = (lat, lon) => {
-  return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=imperial&appid=${API_KEY}`;
+const buildWeatherUrl = (lat, lon, unit) => {
+  return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=${unit}&appid=${API_KEY}`;
 };
 
-export const getWeatherData = async (lat, lon) => {
-  const weatherUrl = buildWeatherUrl(lat, lon);
+export const getWeatherData = async (lat, lon, unit) => {
+  const weatherUrl = buildWeatherUrl(lat, lon, unit);
   const weatherResponse = await axios.get(weatherUrl);
   return weatherResponse.data;
 };
