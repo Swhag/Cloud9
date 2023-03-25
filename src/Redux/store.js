@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import dashboardSlice from './dashboardSlice';
+import settingSlice from './settingSlice';
 
 const store = configureStore({
   reducer: {
-    dashboard: dashboardSlice.reducer,
+    settings: settingSlice.reducer,
   },
 });
 
