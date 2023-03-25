@@ -32,8 +32,7 @@ function groupHourlyForecastByDay(hourlyForecast) {
 }
 
 function HourlyForecast(props) {
-  const { weatherData } = props;
-  const dashboardStyle = useSelector((state) => state.dashboard.dashboardStyle);
+  const { weatherData, dashboardStyle } = props;
   const [groupedData, setGroupedData] = useState(null);
 
   useEffect(() => {

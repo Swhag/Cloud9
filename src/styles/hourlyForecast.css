@@ -1,7 +1,6 @@
 .hourly-forecast-container {
   color: #fff;
   font-size: 1.2rem;
-  border-radius: 15px;
   padding: 2rem;
 }
 
@@ -12,7 +11,6 @@
 }
 
 .hourly-forecast {
-  border-radius: 15px;
   position: relative;
 }
 
@@ -60,7 +58,6 @@
 
 .hourly-scroll-container::-webkit-scrollbar {
   background-color: rgba(36, 45, 69, 0.9);
-  /* border-radius: 8px; */
   height: 0.7rem;
 }
 

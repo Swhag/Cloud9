@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
 import { getIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatUtils';
@@ -8,8 +7,7 @@ import { mdiWater, mdiWeatherRainy } from '@mdi/js';
 import '../styles/dailyForecast.css';
 
 function DailyForecast(props) {
-  const { weatherData } = props;
-  const dashboardStyle = useSelector((state) => state.dashboard.dashboardStyle);
+  const { weatherData, dashboardStyle } = props;
 
   if (!Object.keys(weatherData).length) {
     return <div>Loading...</div>;
