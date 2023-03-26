@@ -74,7 +74,7 @@ export const getImage = (code) => {
       return mistNight;
 
     default:
-      return null;
+      return clearDay;
   }
 };
 

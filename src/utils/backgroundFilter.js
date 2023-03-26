@@ -2,7 +2,6 @@ export const setFilter = (code) => {
   switch (code) {
     // 01d (clearDay)
     case '01d':
-      // return 'rgba(0, 0, 0, 0.1)';
       return 'rgba(255, 255, 255, 0.25)';
 
     // 01n (clearNight)
@@ -59,6 +58,6 @@ export const setFilter = (code) => {
       return 'rgba(0, 0, 0, 0.1)';
 
     default:
-      return null;
+      return 'rgba(255, 255, 255, 0.25)';
   }
 };
