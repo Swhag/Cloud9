@@ -19,14 +19,19 @@ import {
   formatTime,
   metersToMiles,
   getWindDirection,
-} from '../utils/formatUtils';
+} from '../../utils/formatUtils';
 
 function CurrentDetails(props) {
   const { weatherData, dashboardStyle } = props;
-
-  // console.log(weatherData.daily[0]);
-
   const iconSize = 1.5;
+
+  if (!Object.keys(weatherData).length) {
+    return (
+      <div className='details-dashboard'>
+        <div className='details-group' style={dashboardStyle}></div>
+      </div>
+    );
+  }
 
   return (
     <div className='details-dashboard'>

@@ -1,10 +1,20 @@
 import React from 'react';
-import { getIcon } from '../utils/weatherIcons';
-import { capitalize, formatTime } from '../utils/formatUtils';
+import { getIcon } from '../../utils/weatherIcons';
+import { capitalize, formatTime } from '../../utils/formatUtils';
 import { IoLocationSharp } from 'react-icons/io5';
 
 function CurrentWeather(props) {
   const { location, weatherData, dashboardStyle } = props;
+
+  if (!Object.keys(weatherData).length) {
+    return (
+      <div className='current-weather' style={dashboardStyle}>
+        <div className='loading-spinner'>
+          Loading... <i className='fa fa-spinner fa-spin fa-lg'></i>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='current-weather' style={dashboardStyle}>

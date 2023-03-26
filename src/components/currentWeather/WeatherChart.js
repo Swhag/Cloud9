@@ -5,9 +5,14 @@ import Chart from 'chart.js/auto';
 const WeatherChart = (props) => {
   const { weatherData, dashboardStyle } = props;
 
+  if (!Object.keys(weatherData).length) {
+    return (
+      <div className='weather-chart-container' style={dashboardStyle}></div>
+    );
+  }
+
   const fontColor = '#fff';
   const gridColor = 'rgba(255, 255, 255, 0.6)';
-
   const morning = weatherData?.daily[0]?.temp.morn;
   const afternoon = weatherData?.daily[0]?.temp.day;
   const evening = weatherData?.daily[0]?.temp.eve;

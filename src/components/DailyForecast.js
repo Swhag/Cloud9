@@ -10,7 +10,14 @@ function DailyForecast(props) {
   const { weatherData, dashboardStyle } = props;
 
   if (!Object.keys(weatherData).length) {
-    return <div>Loading...</div>;
+    return (
+      <div className='daily-forecast' style={dashboardStyle}>
+        <h3>DAILY FORECAST - 7 DAYS</h3>
+        <div className='loading-spinner'>
+          Loading... <i className='fa fa-spinner fa-spin fa-lg'></i>
+        </div>
+      </div>
+    );
   }
 
   return (

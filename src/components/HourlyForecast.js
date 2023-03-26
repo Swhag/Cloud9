@@ -43,7 +43,14 @@ function HourlyForecast(props) {
   }, [weatherData]);
 
   if (!groupedData) {
-    return <div>Loading...</div>;
+    return (
+      <div className='hourly-forecast-container' style={dashboardStyle}>
+        <h3>HOURLY FORECAST - 48 HOURS</h3>
+        <div className='loading-spinner'>
+          Loading... <i className='fa fa-spinner fa-spin fa-lg'></i>
+        </div>
+      </div>
+    );
   }
 
   return (
