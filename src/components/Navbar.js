@@ -4,15 +4,17 @@ import '../styles/navbar.css';
 import logo from '../assets/icons/logo.png';
 import Icon from '@mdi/react';
 import {
-  mdiClose,
-  mdiMenu,
   mdiViewDashboard,
   mdiHeartCircleOutline,
   mdiCogOutline,
 } from '@mdi/js';
 
 function Navbar(props) {
-  const { setCurrentPage } = props;
+  const { setCurrentPage, setNav } = props;
+
+  const handleSelect = () => {
+    setNav('hide');
+  };
 
   return (
     <>
@@ -23,12 +25,22 @@ function Navbar(props) {
       </div>
 
       <ul className='navbar-list'>
-        <li onClick={() => setCurrentPage('dashboard')}>
+        <li
+          onClick={() => {
+            setCurrentPage('dashboard');
+            handleSelect();
+          }}
+        >
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
           <span>Dashboards</span>
         </li>
 
-        <li onClick={() => setCurrentPage('saved location')}>
+        <li
+          onClick={() => {
+            setCurrentPage('saved location');
+            handleSelect();
+          }}
+        >
           <Icon
             path={mdiHeartCircleOutline}
             size={1.3}
@@ -37,7 +49,12 @@ function Navbar(props) {
           <span>Saved Location</span>
         </li>
 
-        <li onClick={() => setCurrentPage('settings')}>
+        <li
+          onClick={() => {
+            setCurrentPage('settings');
+            handleSelect();
+          }}
+        >
           <Icon path={mdiCogOutline} size={1.3} className='navbar-icon' />
           <span>Settings</span>
         </li>

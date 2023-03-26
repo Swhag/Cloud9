@@ -39,10 +39,6 @@ function App() {
     showNavbar === true ? setNav('show') : setNav('hide');
   }, [showNavbar]);
 
-  useEffect(() => {
-    setNav('hide');
-  }, [currentPage]);
-
   const backgroundImage = {
     backgroundImage: `url(${getImage(
       weatherData.current?.weather[0]?.icon || 'default'
@@ -90,6 +86,7 @@ function App() {
               showNavbar={showNavbar}
               setShowNavbar={setShowNavbar}
               setCurrentPage={setCurrentPage}
+              setNav={setNav}
             />
           </div>
         </div>
