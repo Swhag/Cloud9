@@ -10,10 +10,10 @@ import {
 } from '@mdi/js';
 
 function Navbar(props) {
-  const { setCurrentPage, setNav } = props;
+  const { setCurrentPage, setShowNavbar, setNav } = props;
 
   const handleSelect = () => {
-    setNav('hide');
+    setShowNavbar(false);
   };
 
   return (

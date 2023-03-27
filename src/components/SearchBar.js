@@ -9,10 +9,11 @@ import { mdiMenu } from '@mdi/js';
 function SearchBar(props) {
   const { setLocation, setLat, setLon, showNavbar, setShowNavbar } = props;
   const [searchValue, setSearchValue] = useState('');
+
   const [options, setOptions] = useState([]);
   const [message, setMessage] = useState('No matching locations found');
 
-  useDebounce(() => handleSearch(), 1000, [searchValue]);
+  useDebounce(() => handleSearch(), 500, [searchValue]);
 
   useEffect(() => {
     if (searchValue.length >= 1) {
@@ -66,8 +67,10 @@ function SearchBar(props) {
   return (
     <>
       <button
-        className='menu-button'
-        onClick={() => setShowNavbar(!showNavbar)}
+        className={`menu-button ${showNavbar ? 'rotate' : 'no-rotate'}`}
+        onClick={() => {
+          setShowNavbar(!showNavbar);
+        }}
       >
         <Icon path={mdiMenu} size={2} />
       </button>
