@@ -65,7 +65,9 @@
 .details-group,
 .weather-chart-container,
 .daily-forecast,
-.hourly-forecast-container {
+.hourly-forecast-container,
+.saved-location-container,
+.settings-container {
   border-radius: 15px;
   min-height: 12rem;
 }
@@ -75,7 +77,9 @@
   .details-group,
   .weather-chart-container,
   .daily-forecast,
-  .hourly-forecast-container {
+  .hourly-forecast-container,
+  .saved-location-container,
+  .settings-container {
     border-radius: 0px;
   }
 }
