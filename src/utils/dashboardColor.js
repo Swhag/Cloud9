@@ -58,6 +58,6 @@ export const setDashboardColor = (code) => {
       return 'rgba(0, 0, 0, 0.35)';
 
     default:
-      return 'rgba(0, 0, 0, 0.35)';
+      return 'rgba(0, 0, 0, 0.3)';
   }
 };
