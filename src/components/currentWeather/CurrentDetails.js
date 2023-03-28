@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Icon from '@mdi/react';
 import {
   mdiWater,
@@ -23,6 +25,8 @@ import {
 
 function CurrentDetails(props) {
   const { weatherData, dashboardStyle } = props;
+  const { unit } = useSelector((state) => state.settings);
+
   const iconSize = 1.5;
 
   if (!Object.keys(weatherData).length) {
@@ -32,6 +36,10 @@ function CurrentDetails(props) {
       </div>
     );
   }
+
+  const speedUnit = unit === 'imperial' ? 'mph' : 'km/h';
+
+  console.log(weatherData.daily[1]);
 
   return (
     <div className='details-dashboard'>
@@ -77,7 +85,9 @@ function CurrentDetails(props) {
             <span>Wind Speed</span>
           </div>
 
-          <span>{Math.round(weatherData.current.wind_speed)} mph</span>
+          <span>
+            {Math.round(weatherData.current.wind_speed)} {speedUnit}
+          </span>
         </div>
 
         <div className='details-block'>
