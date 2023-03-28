@@ -45,6 +45,10 @@
   transition: opacity 0.2s;
 }
 
+/* ---------------------------------------- */
+/* navbar styling */
+/* ---------------------------------------- */
+
 .logo {
   color: #fff;
   display: flex;

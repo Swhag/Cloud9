@@ -1,16 +1,16 @@
-.hourly-forecast-container {
+.hourly-forecast {
   color: #fff;
   font-size: 1.2rem;
   padding: 2rem;
 }
 
 @media (max-width: 1024px) {
-  .hourly-forecast-container {
+  .hourly-forecast {
     padding: 1rem;
   }
 }
 
-.hourly-forecast {
+.hourly-forecast-list {
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   cursor: grabbing;
 }
 
-.hourly-forecast li {
+.hourly-forecast-list li {
   background-color: rgba(255, 255, 255, 0.15);
   margin-bottom: 1rem;
 
@@ -47,7 +47,7 @@
 }
 
 @media (max-width: 1024px) {
-  .hourly-forecast li {
+  .hourly-forecast-list li {
     padding: 1rem 0.5rem;
   }
 }

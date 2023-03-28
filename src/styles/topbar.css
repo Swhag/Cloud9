@@ -1,0 +1,103 @@
+.top-bar-container {
+  background: rgba(0, 0, 0, 0.4) !important;
+
+  display: flex;
+  align-items: center;
+  width: 32.5%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+@media (max-width: 1440px) {
+  .top-bar-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .top-bar-container {
+    background: rgba(0, 0, 0, 0.5) !important;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 0;
+  }
+}
+
+.search-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: #fff;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .menu-button {
+    display: block;
+    color: #fff;
+    background: none;
+    border: none;
+  }
+
+  .search-button {
+    display: none;
+  }
+}
+
+.rotate {
+  animation: rotate 0.2s ease-in-out forwards;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.no-rotate {
+  animation: no-rotate 0.2s ease-in-out forwards;
+}
+
+@keyframes no-rotate {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.search-bar {
+  width: 100%;
+}
+
+.my-select__control {
+  border: none;
+  padding: 0 0.6rem;
+  border-radius: 15px !important;
+}
+
+/* this ensures that the input value is still visible after making a selection */
+.my-select__input {
+  opacity: 1 !important;
+}
+
+@media (max-width: 1024px) {
+  .my-select__menu {
+    color: #000 !important;
+  }
+}
