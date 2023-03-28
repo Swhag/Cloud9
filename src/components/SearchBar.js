@@ -5,6 +5,7 @@ import Select from 'react-select';
 import useDebounce from '../utils/hooks/useDebounce';
 import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
+import '../styles/topbar.css';
 
 function SearchBar(props) {
   const { setLocation, setLat, setLon, showNavbar, setShowNavbar } = props;
