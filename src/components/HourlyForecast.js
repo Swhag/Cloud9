@@ -44,7 +44,7 @@ function HourlyForecast(props) {
 
   if (!groupedData) {
     return (
-      <div className='hourly-forecast-container' style={dashboardStyle}>
+      <div className='hourly-forecast' style={dashboardStyle}>
         <h3>HOURLY FORECAST - 48 HOURS</h3>
         <div className='loading-spinner'>
           Loading... <i className='fa fa-spinner fa-spin fa-lg'></i>
@@ -54,10 +54,10 @@ function HourlyForecast(props) {
   }
 
   return (
-    <div className='hourly-forecast-container' style={dashboardStyle}>
+    <div className='hourly-forecast' style={dashboardStyle}>
       <h3>HOURLY FORECAST - 48 HOURS</h3>
 
-      <div className='hourly-forecast'>
+      <div className='hourly-forecast-list'>
         {Object.keys(groupedData).map((day) => (
           <div key={day} className='hourly-day-block'>
             <h4>{day}</h4>
