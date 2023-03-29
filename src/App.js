@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -13,19 +13,21 @@ import { setFilter } from './utils/backgroundFilter';
 import { setDashboardColor } from './utils/dashboardColor';
 
 function App() {
-  const [location, setLocation] = useState('New York City, NY');
+  const [location, setLocation] = useState('Manhattan, NY');
   const [weatherData, setWeatherData] = useState([]);
   const [showNavbar, setShowNavbar] = useState(false);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [lat, setLat] = useState(40.7127);
   const [lon, setLon] = useState(-74.006);
   const [nav, setNav] = useState('show');
-  const unit = useSelector((state) => state.settings.unit);
+  const { autoSync, syncFrequency, unit, dynamicBackground } = useSelector(
+    (state) => state.settings
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       if (lat && lon) {
-        // const weatherData = await getWeatherData(lat, lon, unit);
+        const weatherData = await getWeatherData(lat, lon, unit);
         setWeatherData(weatherData);
         console.log('API called');
       }
@@ -40,26 +42,28 @@ function App() {
   }, [showNavbar]);
 
   const backgroundImage = {
-    backgroundImage: `url(${getImage(
-      weatherData.current?.weather[0]?.icon || 'default'
-    )})`,
+    backgroundImage: dynamicBackground
+      ? `url(${getImage(weatherData.current?.weather[0]?.icon || 'default')})`
+      : `url(${getImage('default')}`,
     backgroundSize: 'cover',
   };
 
   const backgroundFilter = {
-    background: setFilter(weatherData.current?.weather[0]?.icon || 'default'),
+    backgroundColor: dynamicBackground
+      ? setFilter(weatherData.current?.weather[0]?.icon || 'default')
+      : setFilter('default'),
   };
 
   const dashboardStyle = {
-    background: setDashboardColor(
-      weatherData.current?.weather[0]?.icon || 'default'
-    ),
+    background: dynamicBackground
+      ? setDashboardColor(weatherData.current?.weather[0]?.icon || 'default')
+      : setDashboardColor('default'),
   };
 
   return (
     <div className='main-container'>
       <div className='background-container' style={backgroundImage}>
-        <div className='background-filter' style={backgroundFilter}></div>
+        <div className='background-filter' style={backgroundFilter}></div>/
       </div>
 
       <div className={`navbar-container ${nav}`}>
@@ -86,19 +90,23 @@ function App() {
               showNavbar={showNavbar}
               setShowNavbar={setShowNavbar}
               setCurrentPage={setCurrentPage}
-              setNav={setNav}
             />
           </div>
         </div>
 
-        {currentPage === 'settings' && <Settings />}
+        {currentPage === 'settings' && (
+          <Settings dashboardStyle={dashboardStyle} />
+        )}
 
         {currentPage === 'saved location' && (
           <SavedLocation
             weatherData={weatherData}
             location={location}
+            lat={lat}
+            lon={lon}
             setLat={setLat}
             setLon={setLon}
+            dashboardStyle={dashboardStyle}
           />
         )}
 
