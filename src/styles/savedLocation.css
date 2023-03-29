@@ -129,7 +129,7 @@
 .list-fade-in {
   opacity: 0;
   transform: translateY(10%);
-  animation: list-fade-in 0.25s ease-in-out forwards;
+  animation: list-fade-in 0.3s ease-in-out forwards;
 }
 
 @keyframes list-fade-in {
