@@ -42,11 +42,6 @@
   font-size: 1.7rem;
 }
 
-.saved-location-group h3 {
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-
 .saved-location-group h4 {
   font-size: 1.2rem;
   font-weight: 400;
@@ -75,6 +70,10 @@
   transform: scale(1.1);
   color: var(--green-color);
 }
+
+/* ---------------------------------------- */
+/* saved-location list styling */
+/* ---------------------------------------- */
 
 .saved-location-list li {
   width: 100%;
@@ -123,4 +122,19 @@
   }
 }
 
-/* ------------------------------------- */
+/* ---------------------------------------- */
+/* saved-location list item styling */
+/* ---------------------------------------- */
+
+.list-fade-in {
+  opacity: 0;
+  transform: translateY(10%);
+  animation: list-fade-in 0.25s ease-in-out forwards;
+}
+
+@keyframes list-fade-in {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
