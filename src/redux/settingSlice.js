@@ -3,10 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   autoSync: false,
   syncFrequency: '30',
-  unit: 'imperial',
+  unit: 'metric',
+  dynamicBackground: false,
 };
 
-export const settingSlice = createSlice({
+export const settingsSlice = createSlice({
   name: 'settings',
   initialState,
   reducers: {
@@ -19,10 +20,17 @@ export const settingSlice = createSlice({
     setUnit: (state, action) => {
       state.unit = action.payload;
     },
+    toggleDynamicBackground: (state) => {
+      state.dynamicBackground = !state.dynamicBackground;
+    },
   },
 });
 
-export const { toggleAutoSync, setSyncFrequency, setUnit } =
-  settingSlice.actions;
+export const {
+  toggleAutoSync,
+  setSyncFrequency,
+  setUnit,
+  toggleDynamicBackground,
+} = settingsSlice.actions;
 
-export default settingSlice;
+export default settingsSlice;
