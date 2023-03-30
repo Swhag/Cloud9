@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import {
   toggleAutoSync,
@@ -9,13 +10,28 @@ import {
 import '../styles/settings.css';
 
 function Settings(props) {
-  const dispatch = useDispatch();
-  const { autoSync, syncFrequency, unit, dynamicBackground } = useSelector(
-    (state) => state.settings
-  );
+  const { dashboardStyle } = props;
+  const [isMounted, setIsMounted] = useState(false);
 
-  const speedUnits = unit === 'metric' ? 'km/h' : 'mi';
-  const temperatureUnits = unit === 'metric' ? '°C' : '°F';
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return (
+    <div
+      className={`settings-container ${isMounted ? 'fade-in' : ''}`}
+      style={dashboardStyle}
+    >
+      <SynchronizationSetting />
+      <UnitsSetting />
+      <BackgroundSetting />
+    </div>
+  );
+}
+
+function SynchronizationSetting() {
+  const dispatch = useDispatch();
+  const { autoSync, syncFrequency } = useSelector((state) => state.settings);
 
   const handleAutoSyncToggle = () => {
     dispatch(toggleAutoSync());
@@ -24,46 +40,6 @@ function Settings(props) {
   const handleSyncFrequencyChange = (event) => {
     dispatch(setSyncFrequency(event.target.value));
   };
-
-  const handleUnitChange = (event) => {
-    dispatch(setUnit(event.target.value));
-  };
-
-  const handleDynamicBackgroundToggle = () => {
-    dispatch(toggleDynamicBackground());
-  };
-
-  return (
-    <div className='settings-container'>
-      <SynchronizationSetting
-        autoSync={autoSync}
-        syncFrequency={syncFrequency}
-        handleAutoSyncToggle={handleAutoSyncToggle}
-        handleSyncFrequencyChange={handleSyncFrequencyChange}
-      />
-
-      <UnitsSetting
-        unit={unit}
-        speedUnits={speedUnits}
-        temperatureUnits={temperatureUnits}
-        handleUnitChange={handleUnitChange}
-      />
-
-      <BackgroundSetting
-        dynamicBackground={dynamicBackground}
-        handleDynamicBackgroundToggle={handleDynamicBackgroundToggle}
-      />
-    </div>
-  );
-}
-
-function SynchronizationSetting(props) {
-  const {
-    autoSync,
-    syncFrequency,
-    handleAutoSyncToggle,
-    handleSyncFrequencyChange,
-  } = props;
 
   return (
     <div className='settings-group'>
@@ -86,7 +62,8 @@ function SynchronizationSetting(props) {
 
       <li>
         <h4>Frequency</h4>
-        <div className='radio-group'>
+
+        <div className={`sync-radio-group ${autoSync ? 'fade-in' : ''}`}>
           <label className='radio'>
             <input
               type='radio'
@@ -120,8 +97,16 @@ function SynchronizationSetting(props) {
   );
 }
 
-function UnitsSetting(props) {
-  const { unit, speedUnits, temperatureUnits, handleUnitChange } = props;
+function UnitsSetting() {
+  const dispatch = useDispatch();
+  const { unit } = useSelector((state) => state.settings);
+
+  const speedUnits = unit === 'metric' ? 'km/h' : 'mi';
+  const temperatureUnits = unit === 'metric' ? '°C' : '°F';
+
+  const handleUnitChange = (event) => {
+    dispatch(setUnit(event.target.value));
+  };
 
   return (
     <div className='settings-group'>
@@ -133,7 +118,7 @@ function UnitsSetting(props) {
 
       <li>
         <h4>Speed: {speedUnits}</h4>
-        <div className='radio-group'>
+        <div className='unit-radio-group'>
           <label className='radio'>
             <input
               type='radio'
@@ -158,13 +143,19 @@ function UnitsSetting(props) {
   );
 }
 
-function BackgroundSetting(props) {
-  const { dynamicBackground, handleDynamicBackgroundToggle } = props;
+function BackgroundSetting() {
+  const dispatch = useDispatch();
+  const { dynamicBackground } = useSelector((state) => state.settings);
+
+  const handleDynamicBackgroundToggle = () => {
+    dispatch(toggleDynamicBackground());
+  };
+
   return (
     <div className='settings-group'>
       <h2>Background settings</h2>
       <li>
-        <h4>Dynamic background</h4>
+        <h4>Dynamic weather background</h4>
         <label className='toggle'>
           <input
             className='toggle-input'

@@ -122,8 +122,14 @@
 /* settings radio styling */
 /* ---------------------------------------- */
 
-.radio-group {
-  display: flex;
+.sync-radio-group {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sync-radio-group.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .radio {
