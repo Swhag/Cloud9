@@ -26,7 +26,7 @@
 }
 
 /* ---------------------------------------- */
-/* saved-location styling */
+/* current location styling */
 /* ---------------------------------------- */
 
 .saved-location-group {
@@ -38,8 +38,8 @@
 }
 
 .saved-location-group h2 {
-  margin-bottom: 2rem;
   font-size: 1.7rem;
+  margin-bottom: 2rem;
 }
 
 .saved-location-group h4 {
@@ -57,36 +57,61 @@
   margin-bottom: 0.7rem;
 }
 
-.saved-current-add,
-.saved-current-select {
+.saved-current-add {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1.2rem;
 }
 
-.saved-location-icons:hover {
+.saved-location-icons-add:hover {
   cursor: pointer;
   transform: scale(1.1);
   color: var(--green-color);
 }
 
 /* ---------------------------------------- */
-/* saved-location list styling */
+/* saved location styling */
 /* ---------------------------------------- */
 
-.saved-location-list li {
-  width: 100%;
-  border: 1px solid transparent;
+.saved-location-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  float: right;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  transition: background-color 0.2s ease-in-out;
+}
 
+.saved-location-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.list-item-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.7rem;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.saved-location-list ul {
+  margin-bottom: 3rem;
+}
+
+.saved-location-list li {
   background-color: rgba(255, 255, 255, 0.1);
+  min-width: 100%;
+
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   padding: 1rem;
-  margin-bottom: 0.7rem;
-  transition: background-color 0.5s ease-in-out, border 0.2s ease-in-out;
+  transition: background-color 0.5s ease-in-out, border 0.2s ease-in-out,
+    min-width 0.3s ease;
 }
 
 .saved-location-list li:hover {
@@ -122,9 +147,27 @@
   }
 }
 
+.list-item-delete-button {
+  color: #bf360c;
+}
+
+.list-item-delete-button:hover {
+  color: #e57373;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.list-item-delete-button:active {
+  color: #f44336;
+}
+
 /* ---------------------------------------- */
-/* saved-location list item styling */
+/* add saved-location list item animation */
 /* ---------------------------------------- */
+
+.list-shorten {
+  min-width: calc(100% - 3rem) !important;
+}
 
 .list-fade-in {
   opacity: 0;
