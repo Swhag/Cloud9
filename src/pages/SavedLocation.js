@@ -1,18 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLocation, removeLocation } from '../redux/savedLocationSlice';
+import { setLocation, setLat, setLon } from '../redux/weatherSlice';
+import { setCurrentPage } from '../redux/componentStylesSlice';
 
 import {
   BsFillPlusCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs';
-import { ImCross } from 'react-icons/im';
 import { MdOutlineRemoveCircle } from 'react-icons/md';
+
 import '../styles/savedLocation.css';
 
 function SavedLocation(props) {
   const dispatch = useDispatch();
-  const { location, lat, lon, setLat, setLon, dashboardStyle } = props;
+  const { dashboardStyle } = props;
+  const { location, lat, lon } = useSelector((state) => state.weather);
   const { savedLocations } = useSelector((state) => state.savedLocations);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -69,19 +72,22 @@ function SavedLocation(props) {
         </div>
       </div>
       <div className='saved-location-group'>
-        <LocationsList savedLocations={savedLocations} />
+        <LocationsList />
       </div>
     </div>
   );
 }
 
-function LocationsList(props) {
+function LocationsList() {
   const dispatch = useDispatch();
-  const { savedLocations } = props;
+  const { savedLocations } = useSelector((state) => state.savedLocations);
   const [edit, setEdit] = useState(false);
 
   const handleLocationPick = (location) => {
-    console.log(location);
+    dispatch(setLocation(location.name));
+    dispatch(setLat(location.lat));
+    dispatch(setLon(location.lon));
+    dispatch(setCurrentPage('dashboard'));
   };
 
   const handleRemoveLocation = (location) => {

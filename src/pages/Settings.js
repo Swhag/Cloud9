@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import { useSelector, useDispatch } from 'react-redux';
 import {
   toggleAutoSync,
@@ -9,8 +8,8 @@ import {
 } from '../redux/settingSlice';
 import '../styles/settings.css';
 
-function Settings(props) {
-  const { dashboardStyle } = props;
+function Settings() {
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -122,20 +121,20 @@ function UnitsSetting() {
           <label className='radio'>
             <input
               type='radio'
-              value='metric'
-              checked={unit === 'metric'}
-              onChange={handleUnitChange}
-            />
-            <span className='radio-label'>Metric</span>
-          </label>
-          <label className='radio'>
-            <input
-              type='radio'
               value='imperial'
               checked={unit === 'imperial'}
               onChange={handleUnitChange}
             />
             <span className='radio-label'>Imperial</span>
+          </label>
+          <label className='radio'>
+            <input
+              type='radio'
+              value='metric'
+              checked={unit === 'metric'}
+              onChange={handleUnitChange}
+            />
+            <span className='radio-label'>Metric</span>
           </label>
         </div>
       </li>

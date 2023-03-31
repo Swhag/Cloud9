@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setShowNavbar, setCurrentPage } from '../redux/componentStylesSlice';
+
 import '../styles/navbar.css';
 
 import logo from '../assets/icons/logo.png';
@@ -9,11 +12,11 @@ import {
   mdiCogOutline,
 } from '@mdi/js';
 
-function Navbar(props) {
-  const { setCurrentPage, setShowNavbar, setNav } = props;
+function Navbar() {
+  const dispatch = useDispatch();
 
   const handleSelect = () => {
-    setShowNavbar(false);
+    dispatch(setShowNavbar(false));
   };
 
   return (
@@ -27,7 +30,7 @@ function Navbar(props) {
       <ul className='navbar-list'>
         <li
           onClick={() => {
-            setCurrentPage('dashboard');
+            dispatch(setCurrentPage('dashboard'));
             handleSelect();
           }}
         >
@@ -37,7 +40,7 @@ function Navbar(props) {
 
         <li
           onClick={() => {
-            setCurrentPage('saved location');
+            dispatch(setCurrentPage('saved location'));
             handleSelect();
           }}
         >
@@ -51,7 +54,7 @@ function Navbar(props) {
 
         <li
           onClick={() => {
-            setCurrentPage('settings');
+            dispatch(setCurrentPage('settings'));
             handleSelect();
           }}
         >

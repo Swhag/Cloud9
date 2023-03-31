@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
 import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
+
 import { capitalize } from '../utils/formatUtils';
 import { getLocationData } from '../utils/weatherAPI';
-import { useDispatch } from 'react-redux';
 import { setLocation, setLat, setLon } from '../redux/weatherSlice';
+import { setShowNavbar, setCurrentPage } from '../redux/componentStylesSlice';
+
 import useDebounce from '../utils/hooks/useDebounce';
 import '../styles/topbar.css';
 
-function SearchBar(props) {
+function SearchBar() {
   const dispatch = useDispatch();
-  const { showNavbar, setShowNavbar } = props;
+  const { showNavbar } = useSelector((state) => state.componentStyles);
   const [searchValue, setSearchValue] = useState('');
   const [options, setOptions] = useState([]);
   const [message, setMessage] = useState('No matching locations found');
@@ -72,7 +75,7 @@ function SearchBar(props) {
       <button
         className={`menu-button ${showNavbar ? 'rotate' : 'no-rotate'}`}
         onClick={() => {
-          setShowNavbar(!showNavbar);
+          dispatch(setShowNavbar(!showNavbar));
         }}
       >
         <Icon path={mdiMenu} size={2} />
