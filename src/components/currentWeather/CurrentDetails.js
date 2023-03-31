@@ -39,8 +39,6 @@ function CurrentDetails(props) {
 
   const speedUnit = unit === 'imperial' ? 'mph' : 'km/h';
 
-  console.log(weatherData.daily[1]);
-
   return (
     <div className='details-dashboard'>
       <div className='details-group' style={dashboardStyle}>
