@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   autoSync: false,
   syncFrequency: '30',
-  unit: 'metric',
+  unit: 'imperial',
   dynamicBackground: false,
 };
 
