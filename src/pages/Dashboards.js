@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import CurrentWeather from '../components/currentWeather/CurrentWeather';
 import CurrentDetails from '../components/currentWeather/CurrentDetails';
@@ -10,10 +10,30 @@ import '../styles/dashboards.css';
 
 function Dashboards(props) {
   const { weatherData, location, setLocation, dashboardStyle } = props;
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted2, setIsMounted2] = useState(false);
+  const [isMounted3, setIsMounted3] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const timeout2 = setTimeout(() => {
+      setIsMounted2(true);
+    }, 300);
+    const timeout3 = setTimeout(() => {
+      setIsMounted3(true);
+    }, 600);
+
+    return () => {
+      clearTimeout(timeout2);
+      clearTimeout(timeout3);
+    };
+  }, []);
 
   return (
     <div className='dashboard-container'>
-      <div className='current-dashboard-container'>
+      <div
+        className={`current-dashboard-container ${isMounted ? 'fade-in' : ''}`}
+      >
         <div className='current-dashboard-group'>
           <CurrentWeather
             location={location}
@@ -32,18 +52,25 @@ function Dashboards(props) {
       </div>
 
       <div className='forecast-container'>
-        <DailyForecast
-          weatherData={weatherData}
-          location={location}
-          setLocation={setLocation}
-          dashboardStyle={dashboardStyle}
-        />
-
-        <HourlyForecast
-          location={location}
-          weatherData={weatherData}
-          dashboardStyle={dashboardStyle}
-        />
+        <div
+          className={`daily-forecast-container ${isMounted2 ? 'fade-in' : ''}`}
+        >
+          <DailyForecast
+            weatherData={weatherData}
+            location={location}
+            setLocation={setLocation}
+            dashboardStyle={dashboardStyle}
+          />
+        </div>
+        <div
+          className={`hourly-forecast-container ${isMounted3 ? 'fade-in' : ''}`}
+        >
+          <HourlyForecast
+            location={location}
+            weatherData={weatherData}
+            dashboardStyle={dashboardStyle}
+          />
+        </div>
       </div>
     </div>
   );
