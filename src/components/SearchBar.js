@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { capitalize } from '../utils/formatUtils';
-import { getLocationData } from '../utils/weatherAPI';
 import Select from 'react-select';
-import useDebounce from '../utils/hooks/useDebounce';
 import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
+import { capitalize } from '../utils/formatUtils';
+import { getLocationData } from '../utils/weatherAPI';
+import { useDispatch } from 'react-redux';
+import { setLocation, setLat, setLon } from '../redux/weatherSlice';
+import useDebounce from '../utils/hooks/useDebounce';
 import '../styles/topbar.css';
 
 function SearchBar(props) {
-  const { setLocation, setLat, setLon, showNavbar, setShowNavbar } = props;
+  const dispatch = useDispatch();
+  const { showNavbar, setShowNavbar } = props;
   const [searchValue, setSearchValue] = useState('');
-
   const [options, setOptions] = useState([]);
   const [message, setMessage] = useState('No matching locations found');
 
@@ -58,10 +60,10 @@ function SearchBar(props) {
   const handleSelectChange = (selectedOption) => {
     const value = selectedOption.value;
     value.state
-      ? setLocation(`${value.city}, ${value.state}`)
-      : setLocation(`${value.city}, ${value.country}`);
-    setLat(value.lat);
-    setLon(value.lon);
+      ? dispatch(setLocation(`${value.city}, ${value.state}`))
+      : dispatch(setLocation(`${value.city}, ${value.country}`));
+    dispatch(setLat(value.lat));
+    dispatch(setLon(value.lon));
     setSearchValue('');
   };
 
