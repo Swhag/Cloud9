@@ -35,7 +35,7 @@ function Navbar() {
           }}
         >
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
-          <span>Dashboards</span>
+          <span>Weather</span>
         </li>
 
         <li
