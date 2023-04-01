@@ -1,10 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { getIcon } from '../../utils/weatherIcons';
 import { capitalize, formatTime } from '../../utils/formatUtils';
 import { IoLocationSharp } from 'react-icons/io5';
 
-function CurrentWeather(props) {
-  const { location, weatherData, dashboardStyle } = props;
+function CurrentWeather() {
+  const { weatherData, location } = useSelector((state) => state.weather);
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
 
   if (!Object.keys(weatherData).length) {
     return (

@@ -1,20 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLocation, removeLocation } from '../redux/savedLocationSlice';
 import { setLocation, setLat, setLon } from '../redux/weatherSlice';
 import { setCurrentPage } from '../redux/componentStylesSlice';
-
 import {
   BsFillPlusCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs';
 import { MdOutlineRemoveCircle } from 'react-icons/md';
-
 import '../styles/savedLocation.css';
 
-function SavedLocation(props) {
+function SavedLocation() {
   const dispatch = useDispatch();
-  const { dashboardStyle } = props;
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
   const { location, lat, lon } = useSelector((state) => state.weather);
   const { savedLocations } = useSelector((state) => state.savedLocations);
   const [isMounted, setIsMounted] = useState(false);
@@ -98,10 +96,10 @@ function LocationsList() {
     <div className='saved-location-list'>
       <h2>Saved Locations:</h2>
       <ul>
-        {savedLocations.map((location, index) => (
+        {savedLocations.map((savedLocation, index) => (
           <LocationListItem
             key={index}
-            location={location}
+            savedLocation={savedLocation}
             index={index}
             handleLocationPick={handleLocationPick}
             handleRemoveLocation={handleRemoveLocation}
@@ -117,8 +115,13 @@ function LocationsList() {
 }
 
 function LocationListItem(props) {
-  const { location, index, handleLocationPick, handleRemoveLocation, edit } =
-    props;
+  const {
+    savedLocation,
+    index,
+    handleLocationPick,
+    handleRemoveLocation,
+    edit,
+  } = props;
   const [showItem, setShowItem] = useState(false);
 
   useEffect(() => {
@@ -131,19 +134,19 @@ function LocationListItem(props) {
     <div className='list-item-block'>
       <li
         key={index}
-        id={`saved-location-${location.name}`}
+        id={`saved-location-${savedLocation.name}`}
         className={`${showItem ? 'list-fade-in' : ''} ${
           edit ? 'list-shorten' : ''
         }`}
-        onClick={() => handleLocationPick(location)}
+        onClick={() => handleLocationPick(savedLocation)}
       >
-        <h4>{location.name}</h4>
+        <h4>{savedLocation.name}</h4>
         <BsFillArrowRightCircleFill size={24} />
       </li>
       <MdOutlineRemoveCircle
         size={30}
         className='list-item-delete-button'
-        onClick={() => handleRemoveLocation(location.name)}
+        onClick={() => handleRemoveLocation(savedLocation.name)}
       />
     </div>
   );

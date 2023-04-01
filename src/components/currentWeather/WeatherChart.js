@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
-const WeatherChart = (props) => {
-  const { weatherData, dashboardStyle } = props;
+const WeatherChart = () => {
+  const { weatherData } = useSelector((state) => state.weather);
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
 
   if (!Object.keys(weatherData).length) {
     return (

@@ -1,13 +1,14 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
+import Icon from '@mdi/react';
+import { mdiWater } from '@mdi/js';
 import { getIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatUtils';
-import Icon from '@mdi/react';
-import { mdiWater, mdiWeatherRainy } from '@mdi/js';
 import '../styles/dailyForecast.css';
 
-function DailyForecast(props) {
-  const { weatherData, dashboardStyle } = props;
+function DailyForecast() {
+  const { weatherData } = useSelector((state) => state.weather);
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
 
   if (!Object.keys(weatherData).length) {
     return (

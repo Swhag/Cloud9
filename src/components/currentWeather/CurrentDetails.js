@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import Icon from '@mdi/react';
 import {
   mdiWater,
@@ -14,17 +13,16 @@ import {
   mdiWeatherSunset,
   mdiWeatherCloudy,
 } from '@mdi/js';
-
 import { WiMoonrise, WiMoonset } from 'react-icons/wi';
-
 import {
   formatTime,
   metersToMiles,
   getWindDirection,
 } from '../../utils/formatUtils';
 
-function CurrentDetails(props) {
-  const { weatherData, dashboardStyle } = props;
+function CurrentDetails() {
+  const { weatherData } = useSelector((state) => state.weather);
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
   const { unit } = useSelector((state) => state.settings);
 
   const iconSize = 1.5;
