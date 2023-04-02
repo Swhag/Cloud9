@@ -13,6 +13,16 @@ export const getLocationData = async (location) => {
   return LocationResponse.data;
 };
 
+const buildReverseLocationUrl = (lat, lon) => {
+  return `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY1}`;
+};
+
+export const getReverseLocationData = async (lat, lon) => {
+  const LocationUrl = buildReverseLocationUrl(lat, lon);
+  const LocationResponse = await axios.get(LocationUrl);
+  return LocationResponse.data;
+};
+
 const buildWeatherUrl = (lat, lon, unit) => {
   return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=${unit}&appid=${API_KEY}`;
 };
