@@ -18,6 +18,15 @@ function formatDate(date) {
 // --------------------------------------------------------
 // --------------------------------------------------------
 
+/**
+ * Formats a Unix timestamp into a 12-hour time string with AM/PM indicator.
+ * @param {number} timestamp - The Unix timestamp to format.
+ * @returns {string} A string representing the formatted time in the format "h:mm AM/PM".
+ * @example
+ *
+ * formatTime(1648815600) // Returns "10:20 PM"
+ */
+
 function formatTime(timestamp) {
   const date = new Date(timestamp * 1000);
   let hours = date.getHours();
