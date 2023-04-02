@@ -12,6 +12,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .daily-forecast {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .daily-forecast h3 {
   margin-bottom: 2rem;
   font-size: 1.3rem;

@@ -1,20 +1,33 @@
 .top-bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .top-bar-container {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.search-bar-container {
   background: rgba(0, 0, 0, 0.4) !important;
 
   display: flex;
   align-items: center;
   width: 50%;
-  margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 15px;
   position: relative;
 }
 
 @media (max-width: 1024px) {
-  .top-bar-container {
-    background: rgba(0, 0, 0, 0.5) !important;
+  .search-bar-container {
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     border-radius: 0;
   }
 }
@@ -93,5 +106,95 @@
 @media (max-width: 1024px) {
   .my-select__menu {
     color: #000 !important;
+  }
+}
+
+/* ---------------------------------------- */
+/* status bar styling */
+/* ---------------------------------------- */
+
+.status-bar {
+  color: #fff;
+
+  width: 50%;
+  padding: 1.4rem;
+  border-radius: 15px;
+  position: relative;
+  gap: 1rem;
+  font-size: 1.1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 1440px) {
+  .status-bar {
+    gap: 0.5rem;
+    padding: 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .status-bar {
+    display: none;
+    border-radius: 0;
+  }
+}
+
+.status-bar-date-time {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-bar-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-bar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-bar-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* ---------------------------------------- */
+/* status bar toggle styling */
+/* ---------------------------------------- */
+
+.status-bar .toggle-input:checked ~ .no-color-switch {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------------------------------- */
+/* status bar save-icon styling */
+/* ---------------------------------------- */
+
+.heart-icon:hover {
+  cursor: pointer;
+}
+
+.saved-heart {
+  animation: pulse 0.5s linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
   }
 }
