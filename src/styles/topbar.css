@@ -4,6 +4,7 @@
   width: 100%;
   margin-bottom: 1rem;
   gap: 1rem;
+  position: relative;
 }
 
 @media (max-width: 1024px) {

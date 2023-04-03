@@ -51,7 +51,16 @@
     padding: 1rem 0.5rem;
   }
 }
+.hourly-temp {
+  margin-bottom: 0.3rem;
+}
 
+.hourly-rain {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
 /* ---------------------------------------- */
 /* .hourly-forecast scroll styling */
 /* ---------------------------------------- */
