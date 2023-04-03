@@ -7,8 +7,7 @@ import { mdiMenu } from '@mdi/js';
 import { capitalize } from '../utils/formatUtils';
 import { getLocationData } from '../utils/weatherAPI';
 import { setLocation, setLat, setLon } from '../redux/weatherSlice';
-import { setShowNavbar, setCurrentPage } from '../redux/componentStylesSlice';
-
+import { setShowNavbar } from '../redux/componentStylesSlice';
 import useDebounce from '../utils/hooks/useDebounce';
 import '../styles/topbar.css';
 
@@ -71,7 +70,7 @@ function SearchBar() {
   };
 
   return (
-    <>
+    <div className='search-bar-container'>
       <button
         className={`menu-button ${showNavbar ? 'rotate' : 'no-rotate'}`}
         onClick={() => {
@@ -100,7 +99,7 @@ function SearchBar() {
           noOptionsMessage={() => message}
         />
       </form>
-    </>
+    </div>
   );
 }
 

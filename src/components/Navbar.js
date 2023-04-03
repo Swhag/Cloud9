@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setShowNavbar, setCurrentPage } from '../redux/componentStylesSlice';
-
-import '../styles/navbar.css';
-
 import logo from '../assets/icons/logo.png';
 import Icon from '@mdi/react';
 import {
@@ -11,6 +8,8 @@ import {
   mdiHeartCircleOutline,
   mdiCogOutline,
 } from '@mdi/js';
+
+import '../styles/navbar.css';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -35,7 +34,7 @@ function Navbar() {
           }}
         >
           <Icon path={mdiViewDashboard} size={1.3} className='navbar-icon' />
-          <span>Weather</span>
+          <span>Dashboards</span>
         </li>
 
         <li
