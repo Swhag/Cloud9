@@ -4,6 +4,8 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { getIcon } from '../utils/weatherIcons';
 import { formatTime } from '../utils/formatUtils';
 import { groupHourlyForecastByDay } from '../utils/weatherUtils';
+import Icon from '@mdi/react';
+import { mdiWater } from '@mdi/js';
 import '../styles/hourlyForecast.css';
 
 function HourlyForecast() {
@@ -54,6 +56,11 @@ function HourlyForecast() {
                     <span className='hourly-temp-day'>
                       {Math.round(item.temp)}°
                     </span>
+                  </div>
+
+                  <div className='hourly-rain'>
+                    <Icon path={mdiWater} size={0.8} />
+                    <span>{Math.round(item.pop * 100)}%</span>
                   </div>
                 </li>
               ))}
