@@ -44,7 +44,10 @@ function App() {
       dispatch(addCurrentLocationName(locationName));
     };
 
-    if (autoDetect && navigator.geolocation) {
+    if (
+      (autoDetect && navigator.geolocation) ||
+      !Object.keys(weatherData).length
+    ) {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
         const { latitude, longitude } = coords;
         dispatch(setLat(latitude));

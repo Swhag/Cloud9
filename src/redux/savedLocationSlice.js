@@ -7,7 +7,7 @@ const initialState = {
     lat: '',
     lon: '',
   },
-  autoDetect: true,
+  autoDetect: false,
 };
 
 const savedLocationSlice = createSlice({
