@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addLocation, removeLocation } from '../redux/savedLocationSlice';
+import {
+  addLocation,
+  removeLocation,
+  toggleAutoDetect,
+} from '../redux/savedLocationSlice';
 import { setLocation, setLat, setLon } from '../redux/weatherSlice';
 import { setCurrentPage } from '../redux/componentStylesSlice';
+
 import {
   BsFillPlusCircleFill,
   BsFillArrowRightCircleFill,
@@ -12,8 +17,8 @@ import '../styles/savedLocation.css';
 
 function SavedLocation() {
   const dispatch = useDispatch();
-  const { dashboardStyle } = useSelector((state) => state.componentStyles);
   const { location, lat, lon } = useSelector((state) => state.weather);
+  const { dashboardStyle } = useSelector((state) => state.componentStyles);
   const { savedLocations } = useSelector((state) => state.savedLocations);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -71,6 +76,9 @@ function SavedLocation() {
       </div>
       <div className='saved-location-group'>
         <LocationsList />
+      </div>
+      <div className='saved-location-group'>
+        <AutoDetectSetting />
       </div>
     </div>
   );
@@ -148,6 +156,50 @@ function LocationListItem(props) {
         className='list-item-delete-button'
         onClick={() => handleRemoveLocation(savedLocation.name)}
       />
+    </div>
+  );
+}
+
+function AutoDetectSetting() {
+  const dispatch = useDispatch();
+  const { currentLocation, autoDetect } = useSelector(
+    (state) => state.savedLocations
+  );
+
+  const handleDAutoDetectToggle = () => {
+    dispatch(toggleAutoDetect());
+  };
+
+  const handleLocationPick = (location) => {
+    dispatch(setLocation(location.name));
+    dispatch(setLat(location.lat));
+    dispatch(setLon(location.lon));
+    dispatch(setCurrentPage('dashboard'));
+  };
+
+  return (
+    <div className='auto-detect-location'>
+      <li>
+        <h4>Auto-detect your location</h4>
+        <label className='toggle'>
+          <input
+            className='toggle-input'
+            type='checkbox'
+            checked={autoDetect}
+            onChange={handleDAutoDetectToggle}
+          />
+          <div className='toggle-fill switch-color'>
+            <span className='toggle-option'>On</span>
+            <span className='toggle-option'>Off</span>
+          </div>
+        </label>
+      </li>
+      {autoDetect && (
+        <li onClick={() => handleLocationPick(currentLocation)}>
+          <h4>{currentLocation.name}</h4>
+          <BsFillArrowRightCircleFill size={24} />
+        </li>
+      )}
     </div>
   );
 }

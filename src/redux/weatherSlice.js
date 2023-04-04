@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   weatherData: [],
-  location: 'Manhattan, NY',
-  lat: 40.7127,
-  lon: -74.006,
+  location: null,
+  lat: null,
+  lon: null,
 };
 
 const weatherSlice = createSlice({

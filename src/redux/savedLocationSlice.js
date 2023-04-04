@@ -2,6 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   savedLocations: [],
+  currentLocation: {
+    name: '',
+    lat: '',
+    lon: '',
+  },
+  autoDetect: true,
 };
 
 const savedLocationSlice = createSlice({
@@ -26,8 +32,37 @@ const savedLocationSlice = createSlice({
         state.savedLocations.splice(index, 1);
       }
     },
+
+    addCurrentLocationName: (state, action) => {
+      state.currentLocation.name = action.payload;
+      // console.log(state.currentLocation);
+    },
+
+    addCurrentLocationLat: (state, action) => {
+      state.currentLocation.lat = action.payload;
+    },
+
+    addCurrentLocationLon: (state, action) => {
+      state.currentLocation.lon = action.payload;
+    },
+
+    toggleAutoDetect: (state) => {
+      state.autoDetect = !state.autoDetect;
+    },
+
+    setAutoDetect: (state, action) => {
+      state.autoDetect = action.payload;
+    },
   },
 });
 
-export const { addLocation, removeLocation } = savedLocationSlice.actions;
+export const {
+  toggleAutoDetect,
+  setAutoDetect,
+  addLocation,
+  removeLocation,
+  addCurrentLocationName,
+  addCurrentLocationLat,
+  addCurrentLocationLon,
+} = savedLocationSlice.actions;
 export default savedLocationSlice;
