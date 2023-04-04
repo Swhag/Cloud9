@@ -4,7 +4,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const API_KEY1 = process.env.REACT_APP_API_KEY1;
 
 const buildLocationUrl = (location) => {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=10&appid=${API_KEY1}`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=10&appid=${API_KEY1}`;
 };
 
 export const getLocationData = async (location) => {
@@ -14,7 +14,7 @@ export const getLocationData = async (location) => {
 };
 
 const buildReverseLocationUrl = (lat, lon) => {
-  return `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY1}`;
+  return `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY1}`;
 };
 
 export const getReverseLocationData = async (lat, lon) => {
