@@ -129,7 +129,7 @@
   align-items: center;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1700px) {
   .status-bar {
     gap: 0.5rem;
     padding: 1.4rem;
