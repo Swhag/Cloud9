@@ -48,13 +48,13 @@
 }
 
 .saved-current-location {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.7rem;
+  padding: 1rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-
-  padding: 1rem;
-  margin-bottom: 0.7rem;
 }
 
 .saved-current-add {
@@ -97,26 +97,27 @@
 }
 
 .saved-location-list ul {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .saved-location-list li {
   background-color: rgba(255, 255, 255, 0.1);
-  min-width: 100%;
-
   border: 1px solid transparent;
+
+  min-width: 100%;
+  padding: 1rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 1rem;
   transition: background-color 0.5s ease-in-out, border 0.2s ease-in-out,
     min-width 0.3s ease;
 }
 
 .saved-location-list li:hover {
   cursor: pointer;
-  border: 1px solid #eee;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   transition: border 0.2s ease-in-out;
 }
 
@@ -180,4 +181,26 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ---------------------------------------- */
+/* auto-detect location */
+/* ---------------------------------------- */
+
+.auto-detect-location li {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+  min-width: 100%;
+  margin-bottom: 0.7rem;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auto-detect-location li:not(:first-child):hover {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: border 0.2s ease-in-out;
 }
