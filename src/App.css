@@ -52,7 +52,7 @@
   .page-container {
     width: 100%;
     padding: 0rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
   }
 }
 
@@ -117,4 +117,23 @@
   margin-top: 1rem;
   color: #fff;
   font-size: 1.2rem;
+}
+
+/* ---------------------------------------- */
+/* back-to-top Component styling */
+/* ---------------------------------------- */
+
+.back-to-top-button {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }

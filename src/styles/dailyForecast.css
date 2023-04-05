@@ -8,7 +8,7 @@
 @media (max-width: 1024px) {
   .daily-forecast {
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
   }
 }
 

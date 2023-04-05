@@ -8,6 +8,8 @@ import SearchBar from './components/SearchBar';
 import SavedLocation from './pages/SavedLocation';
 import Settings from './pages/Settings';
 import Dashboards from './pages/Dashboard';
+import ScrollTop from './components/ScrollTop';
+
 import { getWeatherData, getReverseLocationData } from './utils/weatherAPI';
 import { setWeather, setLocation, setLat, setLon } from './redux/weatherSlice';
 import {
@@ -34,6 +36,7 @@ function App() {
   );
   const [nav, setNav] = useState('show');
   const mobileNavbarRef = useRef(null);
+  const pageContainerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async (lat, lon) => {
@@ -64,7 +67,6 @@ function App() {
       if (lat && lon) {
         const weatherData = await getWeatherData(lat, lon, unit);
         dispatch(setWeather(weatherData));
-        console.log('API called');
       }
     };
 
@@ -114,7 +116,7 @@ function App() {
         <Navbar />
       </div>
 
-      <div className='page-container'>
+      <div className='page-container' ref={pageContainerRef}>
         <div className='top-bar-container'>
           <SearchBar />
 
@@ -131,6 +133,7 @@ function App() {
         {currentPage === 'dashboard' && <Dashboards />}
         {currentPage === 'saved location' && <SavedLocation />}
         {currentPage === 'settings' && <Settings />}
+        <ScrollTop pageContainerRef={pageContainerRef} />
       </div>
     </div>
   );

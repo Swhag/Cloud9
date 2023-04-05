@@ -86,7 +86,7 @@
 
 @media (max-width: 1024px) {
   .current-weather {
-    padding: 1.5rem;
+    padding: 3rem 1.5rem;
   }
 }
 
@@ -241,7 +241,7 @@
 @media (max-width: 768px) {
   .weather-chart-container {
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
   }
 
   .weather-chart-container h2 {
