@@ -54,7 +54,7 @@ function DailyForecast() {
               </div>
 
               <div className='daily-rain'>
-                <Icon path={mdiWater} size={1.2} />
+                <Icon path={mdiWater} size={1} />
                 <span>{Math.round(item.pop * 100)}%</span>
               </div>
             </li>
