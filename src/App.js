@@ -133,6 +133,7 @@ function App() {
         {currentPage === 'dashboard' && <Dashboards />}
         {currentPage === 'saved location' && <SavedLocation />}
         {currentPage === 'settings' && <Settings />}
+
         <ScrollTop pageContainerRef={pageContainerRef} />
       </div>
     </div>
