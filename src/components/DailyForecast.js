@@ -2,13 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Icon from '@mdi/react';
 import { mdiWater } from '@mdi/js';
-import { getIcon } from '../utils/weatherIcons';
+import { getIcon, getStaticIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatUtils';
 import '../styles/dailyForecast.css';
 
 function DailyForecast() {
   const { weatherData } = useSelector((state) => state.weather);
   const { dashboardStyle } = useSelector((state) => state.componentStyles);
+  const { animatedIconsDaily } = useSelector((state) => state.settings);
 
   if (!Object.keys(weatherData).length) {
     return (
@@ -36,7 +37,11 @@ function DailyForecast() {
                 <p> {monthDay}</p>
               </div>
 
-              <img src={getIcon(item.weather[0].icon)} />
+              {animatedIconsDaily ? (
+                <img src={getIcon(item.weather[0].icon)} />
+              ) : (
+                <img src={getStaticIcon(item.weather[0].icon)} />
+              )}
 
               <div className='daily-temp'>
                 <div className='daily-temp-day'>

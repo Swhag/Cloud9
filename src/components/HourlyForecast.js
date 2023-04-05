@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ScrollContainer from 'react-indiana-drag-scroll';
-import { getIcon } from '../utils/weatherIcons';
+import { getIcon, getStaticIcon } from '../utils/weatherIcons';
 import { formatTime } from '../utils/formatUtils';
 import { groupHourlyForecastByDay } from '../utils/weatherUtils';
 import Icon from '@mdi/react';
@@ -11,6 +11,7 @@ import '../styles/hourlyForecast.css';
 function HourlyForecast() {
   const { weatherData } = useSelector((state) => state.weather);
   const { dashboardStyle } = useSelector((state) => state.componentStyles);
+  const { animatedIconsHourly } = useSelector((state) => state.settings);
   const [groupedData, setGroupedData] = useState(null);
 
   useEffect(() => {
@@ -50,7 +51,11 @@ function HourlyForecast() {
                     <h5>{formatTime(item.dt)}</h5>
                   </div>
 
-                  <img src={getIcon(item.weather[0].icon)} />
+                  {animatedIconsHourly ? (
+                    <img src={getIcon(item.weather[0].icon)} />
+                  ) : (
+                    <img src={getStaticIcon(item.weather[0].icon)} />
+                  )}
 
                   <div className='hourly-temp'>
                     <span className='hourly-temp-day'>

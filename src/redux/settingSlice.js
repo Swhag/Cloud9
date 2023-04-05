@@ -4,6 +4,8 @@ const initialState = {
   autoSync: false,
   syncFrequency: '30',
   unit: 'imperial',
+  animatedIconsDaily: true,
+  animatedIconsHourly: false,
   dynamicBackground: false,
 };
 
@@ -27,6 +29,14 @@ export const settingsSlice = createSlice({
       state.unit = state.unit === 'imperial' ? 'metric' : 'imperial';
     },
 
+    toggleAnimatedIconsDaily: (state) => {
+      state.animatedIconsDaily = !state.animatedIconsDaily;
+    },
+
+    toggleAnimatedIconsHourly: (state) => {
+      state.animatedIconsHourly = !state.animatedIconsHourly;
+    },
+
     toggleDynamicBackground: (state) => {
       state.dynamicBackground = !state.dynamicBackground;
     },
@@ -39,6 +49,8 @@ export const {
   setUnit,
   toggleUnit,
   toggleDynamicBackground,
+  toggleAnimatedIconsDaily,
+  toggleAnimatedIconsHourly,
 } = settingsSlice.actions;
 
 export default settingsSlice;

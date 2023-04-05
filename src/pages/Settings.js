@@ -5,6 +5,8 @@ import {
   setSyncFrequency,
   setUnit,
   toggleDynamicBackground,
+  toggleAnimatedIconsDaily,
+  toggleAnimatedIconsHourly,
 } from '../redux/settingSlice';
 import '../styles/settings.css';
 
@@ -24,6 +26,7 @@ function Settings() {
       <SynchronizationSetting />
       <UnitsSetting />
       <BackgroundSetting />
+      <IconsSetting />
     </div>
   );
 }
@@ -100,7 +103,7 @@ function UnitsSetting() {
   const dispatch = useDispatch();
   const { unit } = useSelector((state) => state.settings);
 
-  const speedUnits = unit === 'metric' ? 'km/h' : 'mi';
+  const speedUnits = unit === 'metric' ? 'km/h' : 'mph';
   const temperatureUnits = unit === 'metric' ? '°C' : '°F';
 
   const handleUnitChange = (event) => {
@@ -152,7 +155,7 @@ function BackgroundSetting() {
 
   return (
     <div className='settings-group'>
-      <h2>Background settings</h2>
+      <h2>Background</h2>
       <li>
         <h4>Dynamic weather background</h4>
         <label className='toggle'>
@@ -161,6 +164,58 @@ function BackgroundSetting() {
             type='checkbox'
             checked={dynamicBackground}
             onChange={handleDynamicBackgroundToggle}
+          />
+          <div className='toggle-fill switch-color'>
+            <span className='toggle-option'>On</span>
+            <span className='toggle-option'>Off</span>
+          </div>
+        </label>
+      </li>
+    </div>
+  );
+}
+
+function IconsSetting() {
+  const dispatch = useDispatch();
+  const { animatedIconsDaily, animatedIconsHourly } = useSelector(
+    (state) => state.settings
+  );
+
+  const handleAnimatedIconsDailyToggle = () => {
+    dispatch(toggleAnimatedIconsDaily());
+  };
+
+  const HandleAnimatedIconsHourlyToggle = () => {
+    dispatch(toggleAnimatedIconsHourly());
+  };
+
+  return (
+    <div className='settings-group'>
+      <h2>Icons</h2>
+      <li>
+        <h4>Animated icons - Daily Forecast</h4>
+        <label className='toggle'>
+          <input
+            className='toggle-input'
+            type='checkbox'
+            checked={animatedIconsDaily}
+            onChange={handleAnimatedIconsDailyToggle}
+          />
+          <div className='toggle-fill switch-color'>
+            <span className='toggle-option'>On</span>
+            <span className='toggle-option'>Off</span>
+          </div>
+        </label>
+      </li>
+
+      <li>
+        <h4>Animated icons - Hourly Forecast</h4>
+        <label className='toggle'>
+          <input
+            className='toggle-input'
+            type='checkbox'
+            checked={animatedIconsHourly}
+            onChange={HandleAnimatedIconsHourlyToggle}
           />
           <div className='toggle-fill switch-color'>
             <span className='toggle-option'>On</span>
