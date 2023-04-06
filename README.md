@@ -12,6 +12,21 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 ### Features
 
+### Frameworks
+
+- Javascript Framework
+
+  - [React](https://reactjs.org/)
+
+### Tools
+
+- [Redux](https://redux.js.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [ChartJS](https://www.chartjs.org/)
+- [react-select](https://www.npmjs.com/package/react-select)
+- [react-indiana-drag-scroll](https://www.npmjs.com/package/react-indiana-drag-scroll)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+
 ### Development Challenges
 
 Challenge 1: Multiple locations with the same name.
@@ -33,18 +48,3 @@ Challenge 3: Forecast layout
 Designing an hourly forecast dashboard presented challenges. A horizontal layout was chosen over a vertical layout for its visual appeal, but sideways scrolling was not user-friendly.
 
 Solution: To improve the user experience, the application implements react-indiana-drag-scroll, allowing users to click and drag the forecast list instead of having to awkwardly scroll sideways.
-
-### Frameworks
-
-- Javascript Framework
-
-  - [React](https://reactjs.org/)
-
-### Tools
-
-- [Redux](https://redux.js.org/)
-- [Axios](https://axios-http.com/docs/intro)
-- [ChartJS](https://www.chartjs.org/)
-- [react-select](https://www.npmjs.com/package/react-select)
-- [react-indiana-drag-scroll](https://www.npmjs.com/package/react-indiana-drag-scroll)
-- [OpenWeatherMap API](https://openweathermap.org/api)
