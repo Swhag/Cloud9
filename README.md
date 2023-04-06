@@ -27,11 +27,10 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 - [react-indiana-drag-scroll](https://www.npmjs.com/package/react-indiana-drag-scroll)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
-![cloud9-1](https://user-images.githubusercontent.com/109196962/230288839-95d7031b-0eda-4557-a474-734cf3a50bff.PNG)
-![cloud9-2](https://user-images.githubusercontent.com/109196962/230288841-ed409b8c-1809-4272-a433-a965d58cc098.PNG)
-![cloud9-3](https://user-images.githubusercontent.com/109196962/230288844-2a01107a-0e1f-4e4f-99aa-c2d111162129.PNG)
-![cloud9-4](https://user-images.githubusercontent.com/109196962/230288846-3211c83d-1c6d-4d81-bbe7-d0b09f07c238.PNG)
-
+<img src="https://user-images.githubusercontent.com/109196962/230288839-95d7031b-0eda-4557-a474-734cf3a50bff.PNG" width="600">
+<img src="https://user-images.githubusercontent.com/109196962/230288841-ed409b8c-1809-4272-a433-a965d58cc098.PNG" width="200">
+<img src="https://user-images.githubusercontent.com/109196962/230288844-2a01107a-0e1f-4e4f-99aa-c2d111162129.PNG" width="200">
+<img src="https://user-images.githubusercontent.com/109196962/230288846-3211c83d-1c6d-4d81-bbe7-d0b09f07c238.PNG" width="200">
 
 ### Development Challenges
 
