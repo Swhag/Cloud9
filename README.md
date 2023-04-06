@@ -43,7 +43,6 @@ Simple weather app developed using React, CSS and javascript.
 </div>
 
 <br>
-<br>
 
 ### Development Challenges
 
