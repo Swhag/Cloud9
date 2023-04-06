@@ -12,6 +12,18 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 ### Features
 
+### Development Challenges
+
+Challenge 1: Multiple locations with the same name.
+
+The application utilizes the React-Select library to display multiple locations with the same name. An API call fetches coordinates for these locations, and when a user selects an option, it triggers another API call to retrieve the accurate weather data.
+
+Challenge 2: Avoiding unnecessary API Calls
+
+Excessive API calls slow down the app's performance and increase costs. For example, updating the suggestion list in real-time for a search term like "Manhattan" may result in nine API calls (one for each letter).
+
+Solution: The app implements a Debounce hook that waits for 500ms after the user stops typing before triggering an API call. This approach reduces the number of unnecessary API calls, improving app performance and reducing costs.
+
 ### Frameworks
 
 - Javascript Framework
