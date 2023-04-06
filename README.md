@@ -28,8 +28,6 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
 ![cloud9-1](https://user-images.githubusercontent.com/109196962/230287755-736579b9-4ddb-4f1b-8955-3ccaa194828d.PNG)
-
-
 ![cloud9-2](https://user-images.githubusercontent.com/109196962/230287481-8c734cd3-c194-4943-ac66-f2b334671a2a.PNG)
 ![cloud9-3](https://user-images.githubusercontent.com/109196962/230287506-0f3b5922-63f3-4c9e-a2d5-664a6b1ec0f7.PNG)
 ![cloud9-4](https://user-images.githubusercontent.com/109196962/230287519-8f8f6bc1-33b5-45ef-bce7-b57ad3214c82.PNG)
