@@ -11,10 +11,10 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 ### Features
 
 - Auto-detect location
-- Search locations (OpenWeatherMap API calls)
-- Display current and forecast weather data for a given location
-- Weather dashboards with weather icons and chart
-- Dynamic weather background based on weather condition
+- Search for locations using OpenWeatherMap API calls.
+- Display current and forecast weather data for a selected location.
+- Weather dashboards with fully responsive design.
+- Dynamic weather background based on weather conditions.
 
 ### Frameworks
 
@@ -54,8 +54,8 @@ Solution: The app implements a Debounce hook that waits for 500ms after the user
 
 ---
 
-Challenge 3: Forecast layout
+Challenge 3: Designing Forecast layout
 
-Designing an hourly forecast dashboard presented challenges. A horizontal layout was chosen over a vertical layout for its visual appeal, but sideways scrolling was not user-friendly.
+A horizontal layout was chosen over a vertical layout for its visual appeal, but sideways scrolling was not user-friendly.
 
 Solution: To improve the user experience, the application implements react-indiana-drag-scroll, allowing users to click and drag the forecast list instead of having to awkwardly scroll sideways.
