@@ -11,10 +11,10 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 ### Features
 
 - Auto-detect location
-- Search for locations using OpenWeatherMap API calls.
-- Display current and forecast weather data for a selected location.
-- Weather dashboards with fully responsive design.
-- Dynamic weather background based on weather conditions.
+- Search for locations using OpenWeatherMap API calls
+- Display current and forecast weather data for a selected location
+- Weather dashboards with fully responsive design
+- Dynamic weather background based on weather conditions
 
 ### Frameworks
 
