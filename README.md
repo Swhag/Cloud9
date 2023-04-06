@@ -8,6 +8,8 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 ### Description
 
+Simple weather app developed using React, CSS and javascript.
+
 ### Features
 
 - Auto-detect location
@@ -30,6 +32,8 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 - [react-select](https://www.npmjs.com/package/react-select)
 - [react-indiana-drag-scroll](https://www.npmjs.com/package/react-indiana-drag-scroll)
 - [OpenWeatherMap API](https://openweathermap.org/api)
+  <br>
+  <br>
 
 <img src="https://user-images.githubusercontent.com/109196962/230288839-95d7031b-0eda-4557-a474-734cf3a50bff.PNG" width="600">
 <div style="display: flex;" >
@@ -37,6 +41,9 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
   <img src="https://user-images.githubusercontent.com/109196962/230288844-2a01107a-0e1f-4e4f-99aa-c2d111162129.PNG" width="200">
   <img src="https://user-images.githubusercontent.com/109196962/230288846-3211c83d-1c6d-4d81-bbe7-d0b09f07c238.PNG" width="200">
 </div>
+
+<br>
+<br>
 
 ### Development Challenges
 
