@@ -16,13 +16,23 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 Challenge 1: Multiple locations with the same name.
 
-The application utilizes the React-Select library to display multiple locations with the same name. An API call fetches coordinates for these locations, and when a user selects an option, it triggers another API call to retrieve the accurate weather data.
+Solution: The application utilizes the React-Select library to display multiple locations with the same name. An API call fetches coordinates for these locations, and when a user selects an option, it triggers another API call to retrieve the accurate weather data.
+
+---
 
 Challenge 2: Avoiding unnecessary API Calls
 
 Excessive API calls slow down the app's performance and increase costs. For example, updating the suggestion list in real-time for a search term like "Manhattan" may result in nine API calls (one for each letter).
 
 Solution: The app implements a Debounce hook that waits for 500ms after the user stops typing before triggering an API call. This approach reduces the number of unnecessary API calls, improving app performance and reducing costs.
+
+---
+
+Challenge 3: Forecast layout
+
+Designing an hourly forecast dashboard presented challenges. A horizontal layout was chosen over a vertical layout for its visual appeal, but sideways scrolling was not user-friendly.
+
+Solution: To improve the user experience, the application implements react-indiana-drag-scroll, allowing users to click and drag the forecast list instead of having to awkwardly scroll sideways.
 
 ### Frameworks
 
