@@ -27,16 +27,11 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 - [react-indiana-drag-scroll](https://www.npmjs.com/package/react-indiana-drag-scroll)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
-
-
 ![cloud9-1](https://user-images.githubusercontent.com/109196962/230288060-c5904d25-9001-4f57-9276-aabab6ba4c06.PNG)
-
-
 
 ![cloud9-2](https://user-images.githubusercontent.com/109196962/230287481-8c734cd3-c194-4943-ac66-f2b334671a2a.PNG)
 ![cloud9-3](https://user-images.githubusercontent.com/109196962/230287506-0f3b5922-63f3-4c9e-a2d5-664a6b1ec0f7.PNG)
 ![cloud9-4](https://user-images.githubusercontent.com/109196962/230287519-8f8f6bc1-33b5-45ef-bce7-b57ad3214c82.PNG)
-
 
 
 ### Development Challenges
