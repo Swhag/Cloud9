@@ -1,8 +1,6 @@
-# Cloud9
+# Cloud9 - React Weather Dashboard
 
 Cloud9 - new and improved weather app (in-progress)
-
-# Cloud9 - Weather Dashboard
 
 Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
@@ -11,6 +9,12 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 ### Description
 
 ### Features
+
+- Auto-detect location
+- Search locations (OpenWeatherMap API calls)
+- Display current and forecast weather data for a given location
+- Weather dashboards with weather icons and chart
+- Dynamic weather background based on weather condition
 
 ### Frameworks
 
