@@ -1,6 +1,4 @@
-# Cloud9 - React Weather Dashboard
-
-Cloud9 - new and improved weather app (in-progress)
+# Cloud9 - React Weather App
 
 Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
@@ -8,15 +6,15 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 ### Description
 
-Simple weather app developed using React, CSS and javascript.
+Cloud9 is a sleek and stylish React weather app that offers users a fully responsive design and clean dashboard theme. Stay up-to-date with the latest weather conditions and forecasts for any location, all while enjoying a user-friendly and intuitive experience.
 
 ### Features
 
 - Auto-detect location
 - Search for locations using OpenWeatherMap API calls
-- Display current and forecast weather data for a selected location
-- Weather dashboards with fully responsive design
+- Current and forecast weather dashboards
 - Dynamic weather background based on weather conditions
+- Fully responsive design
 
 ### Frameworks
 
@@ -56,7 +54,7 @@ Challenge 2: Avoiding unnecessary API Calls
 
 Excessive API calls slow down the app's performance and increase costs. For example, updating the suggestion list in real-time for a search term like "Manhattan" may result in nine API calls (one for each letter).
 
-Solution: The app implements a Debounce hook that waits for 500ms after the user stops typing before triggering an API call. This approach reduces the number of unnecessary API calls, improving app performance and reducing costs.
+Solution: The app implements a Debounce hook that waits for 500ms after the user stops typing before triggering an API call. This approach significantly reduces the number of unnecessary API calls, improving app performance and reducing costs.
 
 ---
 
