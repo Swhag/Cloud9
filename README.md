@@ -6,7 +6,7 @@ Click Here: [Live Demo](https://swhag.github.io/Cloud9/) :point_left:
 
 ### Description
 
-Cloud9 is a sleek and stylish React weather app that offers users a fully responsive design and clean dashboard theme. Stay up-to-date with the latest weather conditions and forecasts for any location, all while enjoying a user-friendly and intuitive experience.
+Cloud9 is a modern React-based weather app with a clean and responsive design. It provides users with up-to-date weather conditions and forecasts for any location, all while offering an intuitive and user-friendly experience.
 
 ### Features
 
