@@ -6,7 +6,7 @@ const initialState = {
   unit: 'imperial',
   animatedIconsDaily: true,
   animatedIconsHourly: false,
-  dynamicBackground: false,
+  dynamicBackground: true,
 };
 
 export const settingsSlice = createSlice({
