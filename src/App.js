@@ -39,28 +39,50 @@ function App() {
   const pageContainerRef = useRef(null);
 
   useEffect(() => {
-    const fetchData = async (lat, lon) => {
-      const [locationData] = await getReverseLocationData(lat, lon);
+    const fetchData = async (latitude, longitude) => {
+      const [locationData] = await getReverseLocationData(latitude, longitude);
       const { name, state, country } = locationData;
       const locationName = state ? `${name}, ${state}` : `${name}, ${country}`;
       dispatch(setLocation(locationName));
       dispatch(addCurrentLocationName(locationName));
     };
 
+    const handleLocationPermission = async () => {
+      try {
+        const permission = await navigator.permissions.query({
+          name: 'geolocation',
+        });
+        if (permission.state === 'denied') {
+          // Location permission denied, alert the user
+          alert(
+            'Please enable location permissions to use this application !!'
+          );
+        } else if (
+          permission.state === 'granted' ||
+          permission.state === 'prompt'
+        ) {
+          // Location permission granted or prompted, fetch location data
+          navigator.geolocation.getCurrentPosition(({ coords }) => {
+            const { latitude, longitude } = coords;
+            dispatch(setLat(latitude));
+            dispatch(setLon(longitude));
+            dispatch(addCurrentLocationLat(latitude));
+            dispatch(addCurrentLocationLon(longitude));
+            fetchData(latitude, longitude);
+          });
+        }
+      } catch (error) {
+        console.error('Error checking location permission:', error);
+      }
+    };
+
     if (
       (autoDetect && navigator.geolocation) ||
       !Object.keys(weatherData).length
     ) {
-      navigator.geolocation.getCurrentPosition(({ coords }) => {
-        const { latitude, longitude } = coords;
-        dispatch(setLat(latitude));
-        dispatch(setLon(longitude));
-        dispatch(addCurrentLocationLat(latitude));
-        dispatch(addCurrentLocationLon(longitude));
-        fetchData(latitude, longitude);
-      });
+      handleLocationPermission();
     }
-  }, [dispatch, autoDetect]);
+  }, [dispatch, autoDetect, weatherData]);
 
   useEffect(() => {
     const fetchData = async () => {
